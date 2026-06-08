@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Your Backup — Verify Files Before You Trust Your Backup</title>
+  <meta name="description" content="Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks and SHA-256 validation." />
+  <meta name="keywords" content="backup verification, file integrity checker, detect corrupted files, backup validation, photo backup, RAW file check, SHA-256 verification, NAS backup, Synology backup, photographers, videographers, IT professionals, Windows, macOS" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#1e3a5f" />
+  <link rel="canonical" href="https://checkyourbackup.com/" />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/img/logo.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://checkyourbackup.com/" />
+  <meta property="og:title" content="Check Your Backup — Verify Files Before You Trust Your Backup" />
+  <meta property="og:description" content="Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="964" />
+  <meta property="og:image:alt" content="Check Your Backup desktop app showing integrity check results" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Check Your Backup — Verify Files Before You Trust Your Backup" />
+  <meta name="twitter:description" content="Free backup verification for Windows and macOS. Detect corrupted files before data loss." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <meta name="twitter:image:alt" content="Check Your Backup desktop app showing integrity check results" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Structured data for Google (rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Check Your Backup",
+    "operatingSystem": ["Windows 10", "Windows 11", "macOS"],
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "File Management",
+    "softwareVersion": "1.0.7",
+    "inLanguage": "en",
+    "url": "https://checkyourbackup.com/",
+    "downloadUrl": "https://github.com/CheckYourBackup/downloads/releases/download/v1.0.7/CheckYourBackup-macOS-1.0.7.zip",
+    "image": "https://checkyourbackup.com/assets/img/og-image.png",
+    "description": "Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks and SHA-256 backup validation.",
+    "screenshot": [
+      "https://checkyourbackup.com/assets/img/screenshot-start.png",
+      "https://checkyourbackup.com/assets/img/screenshot-results.png"
+    ],
+    "audience": {
+      "@type": "PeopleAudience",
+      "audienceType": "Photographers, videographers, NAS users, Synology users, backup enthusiasts, IT professionals"
+    },
+    "featureList": [
+      "Read-only, non-destructive file integrity analysis",
+      "Backup validation comparing original vs. backup with SHA-256",
+      "Supports JPG, TIFF, PNG, CR2, NEF, ARW, DNG, ZIP, PDF, DOCX, XLSX, PPTX",
+      "Branded PDF report and CSV export",
+      "Multithreaded analysis with live progress"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Check Your Backup",
+      "url": "https://checkyourbackup.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkyourbackup.com/assets/img/logo.png"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@checkyourbackup.com",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://checkyourbackup.com/#website",
+    "name": "Check Your Backup",
+    "url": "https://checkyourbackup.com/",
+    "description": "Verify your files before you trust your backup. Free desktop app for Windows and macOS."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://checkyourbackup.com/#webpage",
+    "url": "https://checkyourbackup.com/",
+    "name": "Check Your Backup — Verify Files Before You Trust Your Backup",
+    "description": "Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss.",
+    "isPartOf": { "@id": "https://checkyourbackup.com/#website" },
+    "primaryImageOfPage": "https://checkyourbackup.com/assets/img/og-image.png",
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why isn't my backup software detecting corruption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most backup tools verify that files exist and can be copied successfully. They typically do not open each file and validate that its contents are readable. A backup job can finish without errors even when files are corrupted, empty or damaged. Check Your Backup complements your backup software by actually opening and validating file contents."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Synology Hyper Backup detect empty files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Synology Hyper Backup focuses on copying and versioning your data. It does not generally open files to verify their internal integrity. A file filled with null bytes or damaged data can be backed up successfully and still look normal by name and size. Check Your Backup works alongside tools like Hyper Backup by opening files read-only and flagging those that contain no usable data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Check Your Backup validate RAW files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It supports CR2, NEF, ARW and DNG RAW formats. Each file is opened and decoded read-only to confirm it is not corrupted, truncated or unreadable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it detect corrupted PDFs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. PDFs are opened and parsed read-only. Corrupted, truncated or empty PDFs are flagged, including files that appear correct by name and size but contain no usable data inside."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it modify or repair my files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Check Your Backup is strictly read-only. It analyzes and reports issues but never changes your data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All analysis runs locally on your computer. Nothing is sent to the internet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platforms are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Windows 10/11 and macOS (Intel and Apple Silicon). Builds are portable — no Python or admin rights required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does \"Suspicious\" mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The file opened but showed warning signs (for example, a truncated RAW). It may still be partially usable, but you should double-check it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is the app unsigned?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Code signing/notarization is optional for the initial release. You can still run it by allowing it on first launch."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <img src="assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#features">Features</a>
+        <a href="#formats">Formats</a>
+        <a href="#how">How it works</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#modes">Modes</a>
+        <a href="#story">Story</a>
+        <a href="#docs">Docs</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Version 1.0.7 · Windows &amp; macOS</span>
+        <h1>Verify your files <span class="accent">before</span> you trust your backup.</h1>
+        <p class="lead">
+          Check Your Backup scans your files <strong>read-only</strong>, detects corruption,
+          and compares an original folder against its backup — so you find problems
+          <em>before</em> it's too late.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#download">Download free</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <ul class="trust-bar">
+          <li>Read-only &amp; non-destructive</li>
+          <li>No admin rights</li>
+          <li>Runs 100% locally</li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <div class="app-card">
+          <div class="app-card-head">
+            <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+            <span class="app-card-title">Check Your Backup</span>
+          </div>
+          <div class="app-card-body">
+            <div class="health-ring" style="--pct: 100">
+              <span class="health-value">100%</span>
+              <span class="health-label">Backup Health</span>
+            </div>
+            <ul class="result-list">
+              <li><span class="status status-healthy">Healthy</span> Photos_2024.zip</li>
+              <li><span class="status status-healthy">Healthy</span> IMG_0481.CR2</li>
+              <li><span class="status status-warning">Suspicious</span> scan_draft.tiff</li>
+              <li><span class="status status-critical">Corrupted</span> invoice.pdf</li>
+              <li><span class="status status-skipped">Skipped</span> .DS_Store</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head">
+        <h2>Everything you need to trust your data</h2>
+        <p>Built for photographers, archivists and anyone who can't afford to lose files.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-icon">🛡️</div>
+          <h3>Read-only &amp; safe</h3>
+          <p>Files are analyzed without ever being repaired or modified. Your originals stay untouched.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔀</div>
+          <h3>Two modes</h3>
+          <p>Run an <strong>Integrity Check</strong> on a folder, or a <strong>Backup Validation</strong> comparing original vs. backup.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🗂️</div>
+          <h3>Wide format support</h3>
+          <p>Images, RAW, ZIP archives, PDF and Office documents — all in one tool.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📄</div>
+          <h3>Clear reports</h3>
+          <p>Branded PDF report and CSV export, plus a dedicated Backup Validation report.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Fast</h3>
+          <p>Multithreaded analysis with a live progress bar keeps everything responsive.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">💾</div>
+          <h3>Portable</h3>
+          <p>Download, double-click, run. No Python, no admin rights, no extra dependencies.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who is this for -->
+  <section class="section section-alt" id="audience">
+    <div class="container">
+      <div class="section-head">
+        <h2>Who is this for?</h2>
+        <p>Anyone who stores valuable files and needs proof their backups are actually recoverable.</p>
+      </div>
+      <ul class="audience-list">
+        <li>Photographers</li>
+        <li>Videographers</li>
+        <li>NAS users</li>
+        <li>Synology users</li>
+        <li>Backup enthusiasts</li>
+        <li>IT professionals</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Formats -->
+  <section class="section" id="formats">
+    <div class="container">
+      <div class="section-head">
+        <h2>Supported formats</h2>
+        <p>From everyday documents to professional RAW photography.</p>
+      </div>
+      <div class="format-groups">
+        <div class="format-group">
+          <h3 class="format-label">Images</h3>
+          <div class="badges"><span>JPG</span><span>TIFF</span><span>PNG</span></div>
+        </div>
+        <div class="format-group">
+          <h3 class="format-label">RAW</h3>
+          <div class="badges"><span>CR2</span><span>NEF</span><span>ARW</span><span>DNG</span></div>
+        </div>
+        <div class="format-group">
+          <h3 class="format-label">Archives</h3>
+          <div class="badges"><span>ZIP</span></div>
+        </div>
+        <div class="format-group">
+          <h3 class="format-label">Documents</h3>
+          <div class="badges"><span>PDF</span><span>DOCX</span><span>XLSX</span><span>PPTX</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-alt" id="how">
+    <div class="container">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Three steps to peace of mind.</p>
+      </div>
+      <div class="grid grid-3 steps">
+        <article class="step">
+          <span class="step-num">1</span>
+          <h3>Choose a mode</h3>
+          <p>Integrity Check for a single folder, or Backup Validation to compare original vs. backup.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">2</span>
+          <h3>Select &amp; run</h3>
+          <p>Pick your folder(s) and start the analysis. Watch the live progress bar.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">3</span>
+          <h3>Review &amp; report</h3>
+          <p>See per-file results and open the generated PDF and CSV report.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <div class="section-head">
+        <h2>See it in action</h2>
+        <p>A clean, guided desktop app — pick a mode, analyze a folder, review the results.</p>
+      </div>
+      <div class="grid grid-2 shots-grid">
+        <figure class="window">
+          <div class="window-bar">
+            <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+            <span class="window-title">Check Your Backup</span>
+          </div>
+          <img src="assets/img/screenshot-start.png"
+               alt="Check Your Backup main window with guided steps, mode selector and status legend"
+               loading="lazy" width="1024" height="823" />
+          <figcaption>Guided onboarding, mode selector and status legend.</figcaption>
+        </figure>
+        <figure class="window">
+          <div class="window-bar">
+            <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+            <span class="window-title">Check Your Backup</span>
+          </div>
+          <img src="assets/img/screenshot-results.png"
+               alt="Check Your Backup after an analysis showing a CRITICAL result and statistics"
+               loading="lazy" width="1024" height="792" />
+          <figcaption>Live progress, overall verdict and per-analysis statistics.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modes -->
+  <section class="section section-alt" id="modes">
+    <div class="container">
+      <div class="section-head">
+        <h2>Two ways to protect your data</h2>
+      </div>
+      <div class="grid grid-2">
+        <article class="mode-card">
+          <h3>Integrity Check</h3>
+          <p>Scan a folder and classify every supported file:</p>
+          <ul class="legend">
+            <li><span class="status status-healthy">Healthy</span> opened and verified</li>
+            <li><span class="status status-critical">Corrupted</span> damaged / undecodable</li>
+            <li><span class="status status-warning">Suspicious</span> opened with warnings</li>
+            <li><span class="status status-muted">Unreadable</span> could not be read</li>
+            <li><span class="status status-skipped">Skipped</span> intentionally excluded</li>
+          </ul>
+        </article>
+        <article class="mode-card">
+          <h3>Backup Validation</h3>
+          <p>Compare an original folder with its backup (size, then SHA-256):</p>
+          <ul class="legend">
+            <li><span class="status status-healthy">Validated</span> identical in both</li>
+            <li><span class="status status-critical">Missing</span> not in backup</li>
+            <li><span class="status status-warning">Different Size</span> size mismatch</li>
+            <li><span class="status status-critical">Different Content</span> hash mismatch</li>
+            <li><span class="status status-muted">Extra</span> only in backup</li>
+          </ul>
+          <p class="mode-foot">Plus an overall <strong>Backup Health %</strong>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reports -->
+  <section class="section" id="reports">
+    <div class="container">
+      <div class="section-head">
+        <h2>Reports you can keep</h2>
+        <p>Document the state of your files with professional, shareable reports.</p>
+      </div>
+      <div class="grid grid-2">
+        <figure class="shot">
+          <img src="assets/img/report-pdf.png"
+               alt="Check Your Backup PDF report cover with health score"
+               loading="lazy" width="1131" height="1600" />
+        </figure>
+        <div class="report-copy">
+          <ul class="check-list">
+            <li>Corporate PDF with summary, statistics and a corrupted-files table</li>
+            <li>Per-type sections: images, RAW, ZIP, PDF, Office</li>
+            <li>CSV export: File, Status, Reason, Size, Extension</li>
+            <li>Dedicated Backup Validation PDF with health score</li>
+            <li>Saved straight to the folder you analyzed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section section-alt" id="story">
+    <div class="container">
+      <div class="section-head">
+        <h2>The Story Behind Check Your Backup</h2>
+        <p>Why I built a tool that actually opens your files.</p>
+      </div>
+      <article class="story">
+        <div class="author">
+          <img class="author-photo" src="assets/img/manuel-pinar.jpg"
+               alt="Portrait of Manuel Pinar" loading="lazy"
+               width="642" height="614" />
+          <div class="author-meta">
+            <p class="author-name">Manuel Pinar</p>
+            <p class="author-role">Professional photographer · Basque Country, Spain</p>
+            <a class="author-link" href="https://www.manuelpinar.com" target="_blank" rel="noopener">manuelpinar.com</a>
+          </div>
+        </div>
+
+        <p>
+          For many years I have worked with large photographic archives, ranging from
+          4×5 large-format film transparencies to modern high-resolution digital
+          photography. Throughout my career, I have managed hundreds of thousands of
+          image files across multiple storage systems and backup devices.
+        </p>
+        <p>
+          Like many professionals, I followed the well-known <strong>3-2-1 backup
+          strategy</strong>. I believed my data was safe because I always maintained
+          multiple backups of my projects.
+        </p>
+
+        <p class="story-highlight">Then one day I needed to recover an old file.</p>
+
+        <p>
+          To my surprise, the file was corrupted. It could not be opened, repaired,
+          or recovered. At first, I was not worried — I assumed I could simply restore
+          it from one of my backups.
+        </p>
+        <p>Unfortunately, I discovered something much worse.</p>
+        <p>
+          The corruption had silently propagated from backup to backup over the years.
+          Every backup contained the same damaged file. The original problem had been
+          copied repeatedly until every available copy was unusable.
+        </p>
+        <p>
+          The file still looked perfectly normal. It had the correct name, the expected
+          file size, and occupied hundreds of megabytes of storage. Some damaged files
+          were over 1 GB in size. Yet when opened, they contained no usable data at all.
+        </p>
+
+        <blockquote class="story-quote">
+          Most backup systems verify that files <em>exist</em> and can be copied. They
+          generally do not open every file and verify that its contents are actually
+          valid and readable. A backup can successfully complete while still containing
+          corrupted, empty, damaged, or unreadable files.
+        </blockquote>
+
+        <p>
+          That realization led me to create Check Your Backup. Instead of simply checking
+          whether files exist, it automatically opens and validates files whenever
+          possible — helping identify corrupted files before they become permanent data loss.
+        </p>
+
+        <p class="story-highlight">My recommendation is simple:</p>
+        <ul class="story-takeaways">
+          <li>Do not assume your backups are healthy.</li>
+          <li>Verify them regularly.</li>
+          <li>
+            You may discover damaged files that have been silently travelling through
+            your backup chain for years without anyone noticing.
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="section" id="support">
+    <div class="container">
+      <div class="support-card">
+        <div class="support-icon" aria-hidden="true">☕</div>
+        <h2>Support Check Your Backup</h2>
+        <p>Check Your Backup is developed and maintained independently.</p>
+        <p>
+          If this software helped you protect your files and backups, consider
+          supporting future development with a small contribution.
+        </p>
+        <a class="btn btn-primary support-btn"
+           href="https://paypal.me/checkyourbackup/5" target="_blank" rel="noopener">
+          <span aria-hidden="true">☕</span> Support Development (€5)
+        </a>
+        <a class="support-alt"
+           href="https://paypal.me/checkyourbackup" target="_blank" rel="noopener">
+          Choose your own amount
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="section section-cta" id="download">
+    <div class="container">
+      <div class="section-head">
+        <h2>Download Check Your Backup</h2>
+        <p id="releaseMeta">Free · Portable · Runs locally.</p>
+      </div>
+      <div class="download-row" id="downloadCards">
+        <!-- Cards are rendered from downloads/releases.js -->
+        <noscript>
+          <p>Enable JavaScript to see download options, or browse the
+            <code>downloads/</code> folder directly.</p>
+        </noscript>
+      </div>
+      <div class="install-help">
+        <h3 class="install-title">First launch</h3>
+        <p class="install-intro">
+          The builds are not code-signed yet, so your system shows a one-time
+          security prompt. This is normal for free, unsigned apps and does not
+          mean anything is wrong — here's how to open it.
+        </p>
+        <div class="grid grid-2 install-grid">
+          <div class="install-card">
+            <h3 class="install-label">macOS</h3>
+            <ol>
+              <li>Double-click the app. When the warning appears, click
+                <strong>OK</strong> — do <em>not</em> move it to Trash.</li>
+              <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+              <li>Scroll down and click <strong>Open Anyway</strong> next to
+                “CheckYourBackup”.</li>
+              <li>Confirm with <strong>Open</strong> / Touch ID. From now on it
+                opens with a normal double-click.</li>
+            </ol>
+          </div>
+          <div class="install-card">
+            <h3 class="install-label">Windows</h3>
+            <ol>
+              <li>Unzip the package and run
+                <strong>CheckYourBackup.exe</strong>.</li>
+              <li>If <strong>SmartScreen</strong> appears, click
+                <strong>More info</strong>.</li>
+              <li>Click <strong>Run anyway</strong>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Why isn't my backup software detecting corruption?</summary>
+          <p>
+            Most backup tools verify that files <em>exist</em> and can be copied
+            successfully. They typically do not open each file and validate that
+            its contents are readable. A backup job can finish without errors even
+            when files are corrupted, empty or damaged — because the copy itself
+            succeeded. Check Your Backup complements your backup software by
+            actually opening and validating file contents.
+          </p>
+        </details>
+        <details>
+          <summary>Does Synology Hyper Backup detect empty files?</summary>
+          <p>
+            Synology Hyper Backup focuses on copying and versioning your data. It
+            does not generally open files to verify their internal integrity. A file
+            filled with null bytes or damaged data can be backed up successfully and
+            still look normal by name and size. Check Your Backup works alongside
+            tools like Hyper Backup by opening files read-only and flagging those
+            that contain no usable data.
+          </p>
+        </details>
+        <details>
+          <summary>Can Check Your Backup validate RAW files?</summary>
+          <p>
+            Yes. It supports CR2, NEF, ARW and DNG RAW formats. Each file is opened
+            and decoded read-only to confirm it is not corrupted, truncated or
+            unreadable.
+          </p>
+        </details>
+        <details>
+          <summary>Can it detect corrupted PDFs?</summary>
+          <p>
+            Yes. PDFs are opened and parsed read-only. Corrupted, truncated or empty
+            PDFs are flagged — including files that appear correct by name and size
+            but contain no usable data inside.
+          </p>
+        </details>
+        <details>
+          <summary>Does it modify or repair my files?</summary>
+          <p>No. Check Your Backup is strictly read-only. It analyzes and reports issues but never changes your data.</p>
+        </details>
+        <details>
+          <summary>Are my files uploaded anywhere?</summary>
+          <p>No. All analysis runs locally on your computer. Nothing is sent to the internet.</p>
+        </details>
+        <details>
+          <summary>Which platforms are supported?</summary>
+          <p>Windows 10/11 and macOS (Intel and Apple Silicon). Builds are portable — no Python or admin rights required.</p>
+        </details>
+        <details>
+          <summary>What does "Suspicious" mean?</summary>
+          <p>The file opened but showed warning signs (for example, a truncated RAW). It may still be partially usable, but you should double-check it.</p>
+        </details>
+        <details>
+          <summary>Why is the app unsigned?</summary>
+          <p>Code signing/notarization is optional for the initial release. You can still run it by allowing it on first launch. See the download note above.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation -->
+  <section class="section" id="docs">
+    <div class="container">
+      <div class="section-head">
+        <h2>Documentation</h2>
+        <p>Guides, project background and version history.</p>
+      </div>
+      <div class="grid grid-3">
+        <a class="doc-card" href="docs/user-guide.html">
+          <div class="card-icon">📘</div>
+          <h3>User guide</h3>
+          <p>Run an integrity check and a backup validation, step by step, and read your results.</p>
+          <span class="doc-link">Read the guide →</span>
+        </a>
+        <a class="doc-card" href="docs/about.html">
+          <div class="card-icon">ℹ️</div>
+          <h3>About the project</h3>
+          <p>What Check Your Backup is, who it's for, and exactly what it checks.</p>
+          <span class="doc-link">Learn more →</span>
+        </a>
+        <a class="doc-card" href="docs/changelog.html">
+          <div class="card-icon">🗒️</div>
+          <h3>Version history</h3>
+          <p>Release notes and changes for every version of the app.</p>
+          <span class="doc-link">View changelog →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Questions, feedback or a corrupted file that slipped through? I'd love to hear from you.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:info@checkyourbackup.com">
+          <span aria-hidden="true">✉️</span> info@checkyourbackup.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+      <p class="footer-disclaimer">
+        Check Your Backup does not certify that files are error-free; it documents known
+        issues detected during analysis. Final responsibility for data verification
+        remains with the user. All analysis runs locally.
+      </p>
+      <p class="footer-meta">
+        <a href="mailto:info@checkyourbackup.com" class="footer-link">info@checkyourbackup.com</a>
+      </p>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup — All Rights Reserved</p>
+      <p class="footer-meta footer-version">v<span id="footerVersion">1.0.7</span></p>
+    </div>
+  </footer>
+
+  <script src="downloads/releases.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

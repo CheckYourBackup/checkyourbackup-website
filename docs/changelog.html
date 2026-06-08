@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version History — Check Your Backup</title>
+  <meta name="description" content="Release notes and version history for Check Your Backup. See what changed in each version of the desktop app." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://checkyourbackup.com/docs/changelog.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:url" content="https://checkyourbackup.com/docs/changelog.html" />
+  <meta property="og:title" content="Version History — Check Your Backup" />
+  <meta property="og:description" content="Release notes and version history for Check Your Backup." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Version History — Check Your Backup" />
+  <meta name="twitter:description" content="Release notes and version history for Check Your Backup." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="../index.html#docs">← Back to documentation</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+        <span class="doc-eyebrow">Documentation</span>
+        <h1>Version history</h1>
+        <p class="doc-meta">Release notes and changes for each version of Check Your Backup.</p>
+
+        <!--
+          To add a new release, copy a .doc-version block below, update the tag,
+          date and bullet points. Keep the newest version at the top.
+        -->
+
+        <div class="doc-version">
+          <div class="doc-version-head">
+            <span class="doc-version-tag">v1.0.7</span>
+            <span class="doc-version-date">June 9, 2026</span>
+            <span class="doc-badge">Latest</span>
+          </div>
+          <p>Support and polish release.</p>
+          <ul>
+            <li>Updated PayPal support link.</li>
+            <li>Added Support Development button in the main window.</li>
+            <li>Improved About dialog with author attribution.</li>
+            <li>Minor UI improvements.</li>
+          </ul>
+        </div>
+
+        <div class="doc-version">
+          <div class="doc-version-head">
+            <span class="doc-version-tag">v1.0.6</span>
+            <span class="doc-version-date">June 9, 2026</span>
+          </div>
+          <p>Trust, clarity and professionalism — without changing how analysis works.</p>
+          <h3>Read-only assurance</h3>
+          <ul>
+            <li>Always-visible notice in the app: Check Your Backup never modifies, deletes, moves or repairs your files.</li>
+            <li>PDF cover page includes the same read-only explanation and the tagline <em>Verify before you trust your backup.</em></li>
+          </ul>
+          <h3>Clearer for new users</h3>
+          <ul>
+            <li>Compact three-step guide in the main window: Select a folder → Analyze → Review detected issues.</li>
+            <li>New Help → About window with version, website and optional support link.</li>
+          </ul>
+          <h3>Diagnostic-only results</h3>
+          <ul>
+            <li>Removed Health Score, Backup Readiness Score and qualitative status labels (EXCELLENT, GOOD, etc.).</li>
+            <li>Reports and UI now show objective counts only: files analyzed, Healthy, Corrupted, Suspicious, Skipped and data analyzed.</li>
+          </ul>
+        </div>
+
+        <div class="doc-version">
+          <div class="doc-version-head">
+            <span class="doc-version-tag">v1.0.5</span>
+            <span class="doc-version-date">June 8, 2026</span>
+          </div>
+          <p>Minimalist utility redesign — one screen, one workflow.</p>
+          <ul>
+            <li>Single integrity-check workflow: select folder, analyze, view results.</li>
+            <li>Removed Backup Validation from the app UI, plus tabs, dashboards and help panels.</li>
+            <li>Progress bar always visible; file table is the main focus of the window.</li>
+          </ul>
+        </div>
+
+        <div class="doc-version">
+          <div class="doc-version-head">
+            <span class="doc-version-tag">v1.0.0</span>
+            <span class="doc-version-date">June 7, 2026</span>
+          </div>
+          <p>First public release.</p>
+          <h3>Integrity Check</h3>
+          <ul>
+            <li>Images: JPG, TIFF, PNG.</li>
+            <li>RAW: CR2, NEF, ARW, DNG.</li>
+            <li>Archives: ZIP, including analysis of images inside the archive.</li>
+            <li>Documents: PDF, DOCX, XLSX, PPTX.</li>
+            <li>Each file is classified as Healthy, Corrupted, Suspicious, Unreadable or Skipped.</li>
+          </ul>
+          <h3>Backup Validation</h3>
+          <ul>
+            <li>Compares an original folder with a backup (size first, then SHA-256).</li>
+            <li>Reports Validated, Missing in Backup, Different Size, Different Content and Extra in Backup.</li>
+            <li>Overall Backup Health score.</li>
+          </ul>
+          <h3>Reports &amp; more</h3>
+          <ul>
+            <li>Corporate PDF report and CSV export, plus a dedicated Backup Validation PDF.</li>
+            <li>Per-user analysis history.</li>
+            <li>Multithreaded analysis with a responsive progress bar.</li>
+            <li>Guided onboarding: how-to steps, mode descriptions and a status legend.</li>
+            <li>Automatic exclusions of irrelevant files (program reports, system, temporary and hidden files).</li>
+          </ul>
+          <h3>Packaging</h3>
+          <ul>
+            <li>Portable, double-click builds for Windows 10/11 and macOS (Intel / Apple Silicon).</li>
+            <li>No Python, no admin rights, no extra dependencies. Windowed (no console).</li>
+            <li>Reports are written to the selected folder; nothing is written to system locations.</li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
