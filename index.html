@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Check Your Backup — Verify Files Before You Trust Your Backup</title>
-  <meta name="description" content="Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks and SHA-256 validation." />
-  <meta name="keywords" content="backup verification, file integrity checker, detect corrupted files, backup validation, photo backup, RAW file check, SHA-256 verification, NAS backup, Synology backup, photographers, videographers, IT professionals, Windows, macOS" />
+  <meta name="description" content="Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks — nothing is modified or uploaded." />
+  <meta name="keywords" content="backup verification, file integrity checker, detect corrupted files, photo backup, RAW file check, NAS backup, Synology backup, photographers, videographers, IT professionals, Windows, macOS" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#1e3a5f" />
   <link rel="canonical" href="https://checkyourbackup.com/" />
@@ -48,7 +48,7 @@
     "url": "https://checkyourbackup.com/",
     "downloadUrl": "https://github.com/CheckYourBackup/downloads/releases/download/v1.0.7/CheckYourBackup-macOS-1.0.7.zip",
     "image": "https://checkyourbackup.com/assets/img/og-image.png",
-    "description": "Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks and SHA-256 backup validation.",
+    "description": "Free backup verification for Windows and macOS. Detect corrupted images, RAW, ZIP, PDF and Office files before data loss. Read-only integrity checks with objective per-file results.",
     "screenshot": [
       "https://checkyourbackup.com/assets/img/screenshot-start.png",
       "https://checkyourbackup.com/assets/img/screenshot-results.png"
@@ -59,9 +59,9 @@
     },
     "featureList": [
       "Read-only, non-destructive file integrity analysis",
-      "Backup validation comparing original vs. backup with SHA-256",
+      "Per-file status: Healthy, Corrupted, Suspicious, Unreadable or Skipped",
       "Supports JPG, TIFF, PNG, CR2, NEF, ARW, DNG, ZIP, PDF, DOCX, XLSX, PPTX",
-      "Branded PDF report and CSV export",
+      "Branded PDF report and CSV export with objective counts",
       "Multithreaded analysis with live progress"
     ],
     "offers": {
@@ -203,7 +203,7 @@
         <a href="#formats">Formats</a>
         <a href="#how">How it works</a>
         <a href="#screenshots">Screenshots</a>
-        <a href="#modes">Modes</a>
+        <a href="#status">Status</a>
         <a href="#story">Story</a>
         <a href="#docs">Docs</a>
         <a href="#faq">FAQ</a>
@@ -223,8 +223,8 @@
         <span class="eyebrow">Version 1.0.7 · Windows &amp; macOS</span>
         <h1>Verify your files <span class="accent">before</span> you trust your backup.</h1>
         <p class="lead">
-          Check Your Backup scans your files <strong>read-only</strong>, detects corruption,
-          and compares an original folder against its backup — so you find problems
+          Check Your Backup scans your files <strong>read-only</strong>, opens each supported
+          file to verify it is readable, and flags corruption — so you find problems
           <em>before</em> it's too late.
         </p>
         <div class="hero-cta">
@@ -244,10 +244,7 @@
             <span class="app-card-title">Check Your Backup</span>
           </div>
           <div class="app-card-body">
-            <div class="health-ring" style="--pct: 100">
-              <span class="health-value">100%</span>
-              <span class="health-label">Backup Health</span>
-            </div>
+            <p class="scan-summary">847 files scanned · <strong>3 need attention</strong></p>
             <ul class="result-list">
               <li><span class="status status-healthy">Healthy</span> Photos_2024.zip</li>
               <li><span class="status status-healthy">Healthy</span> IMG_0481.CR2</li>
@@ -275,9 +272,9 @@
           <p>Files are analyzed without ever being repaired or modified. Your originals stay untouched.</p>
         </article>
         <article class="card">
-          <div class="card-icon">🔀</div>
-          <h3>Two modes</h3>
-          <p>Run an <strong>Integrity Check</strong> on a folder, or a <strong>Backup Validation</strong> comparing original vs. backup.</p>
+          <div class="card-icon">📂</div>
+          <h3>One simple workflow</h3>
+          <p>Select a folder, run an <strong>integrity check</strong>, and review per-file results in a single focused window.</p>
         </article>
         <article class="card">
           <div class="card-icon">🗂️</div>
@@ -287,7 +284,7 @@
         <article class="card">
           <div class="card-icon">📄</div>
           <h3>Clear reports</h3>
-          <p>Branded PDF report and CSV export, plus a dedicated Backup Validation report.</p>
+          <p>Branded PDF report and CSV export with objective counts — files analyzed, issues found and per-type breakdown.</p>
         </article>
         <article class="card">
           <div class="card-icon">⚡</div>
@@ -359,18 +356,18 @@
       <div class="grid grid-3 steps">
         <article class="step">
           <span class="step-num">1</span>
-          <h3>Choose a mode</h3>
-          <p>Integrity Check for a single folder, or Backup Validation to compare original vs. backup.</p>
+          <h3>Select a folder</h3>
+          <p>Choose the folder you want to verify — your archive, backup copy or NAS mount.</p>
         </article>
         <article class="step">
           <span class="step-num">2</span>
-          <h3>Select &amp; run</h3>
-          <p>Pick your folder(s) and start the analysis. Watch the live progress bar.</p>
+          <h3>Run the analysis</h3>
+          <p>Start the integrity check and watch the live progress bar as each file is opened read-only.</p>
         </article>
         <article class="step">
           <span class="step-num">3</span>
           <h3>Review &amp; report</h3>
-          <p>See per-file results and open the generated PDF and CSV report.</p>
+          <p>See per-file results, objective counts and open the generated PDF and CSV report.</p>
         </article>
       </div>
     </div>
@@ -381,7 +378,7 @@
     <div class="container">
       <div class="section-head">
         <h2>See it in action</h2>
-        <p>A clean, guided desktop app — pick a mode, analyze a folder, review the results.</p>
+        <p>A clean, focused desktop app — select a folder, analyze it, review the results.</p>
       </div>
       <div class="grid grid-2 shots-grid">
         <figure class="window">
@@ -390,9 +387,9 @@
             <span class="window-title">Check Your Backup</span>
           </div>
           <img src="assets/img/screenshot-start.png"
-               alt="Check Your Backup main window with guided steps, mode selector and status legend"
+               alt="Check Your Backup main window with folder selection, how-it-works steps and status legend"
                loading="lazy" width="1024" height="823" />
-          <figcaption>Guided onboarding, mode selector and status legend.</figcaption>
+          <figcaption>Folder selection, compact how-it-works guide and status legend.</figcaption>
         </figure>
         <figure class="window">
           <div class="window-bar">
@@ -400,45 +397,33 @@
             <span class="window-title">Check Your Backup</span>
           </div>
           <img src="assets/img/screenshot-results.png"
-               alt="Check Your Backup after an analysis showing a CRITICAL result and statistics"
+               alt="Check Your Backup after an analysis showing per-file results and objective statistics"
                loading="lazy" width="1024" height="792" />
-          <figcaption>Live progress, overall verdict and per-analysis statistics.</figcaption>
+          <figcaption>Live progress, per-file results table and objective statistics.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- Modes -->
-  <section class="section section-alt" id="modes">
+  <!-- Status legend -->
+  <section class="section section-alt" id="status">
     <div class="container">
       <div class="section-head">
-        <h2>Two ways to protect your data</h2>
+        <h2>How files are classified</h2>
+        <p>Every supported file in your folder gets a clear, objective status.</p>
       </div>
-      <div class="grid grid-2">
-        <article class="mode-card">
-          <h3>Integrity Check</h3>
-          <p>Scan a folder and classify every supported file:</p>
-          <ul class="legend">
-            <li><span class="status status-healthy">Healthy</span> opened and verified</li>
-            <li><span class="status status-critical">Corrupted</span> damaged / undecodable</li>
-            <li><span class="status status-warning">Suspicious</span> opened with warnings</li>
-            <li><span class="status status-muted">Unreadable</span> could not be read</li>
-            <li><span class="status status-skipped">Skipped</span> intentionally excluded</li>
-          </ul>
-        </article>
-        <article class="mode-card">
-          <h3>Backup Validation</h3>
-          <p>Compare an original folder with its backup (size, then SHA-256):</p>
-          <ul class="legend">
-            <li><span class="status status-healthy">Validated</span> identical in both</li>
-            <li><span class="status status-critical">Missing</span> not in backup</li>
-            <li><span class="status status-warning">Different Size</span> size mismatch</li>
-            <li><span class="status status-critical">Different Content</span> hash mismatch</li>
-            <li><span class="status status-muted">Extra</span> only in backup</li>
-          </ul>
-          <p class="mode-foot">Plus an overall <strong>Backup Health %</strong>.</p>
-        </article>
-      </div>
+      <article class="mode-card mode-card-single">
+        <h3>Integrity Check</h3>
+        <p>Scan a folder and classify every supported file:</p>
+        <ul class="legend">
+          <li><span class="status status-healthy">Healthy</span> opened and verified</li>
+          <li><span class="status status-critical">Corrupted</span> damaged / undecodable</li>
+          <li><span class="status status-warning">Suspicious</span> opened with warnings</li>
+          <li><span class="status status-muted">Unreadable</span> could not be read</li>
+          <li><span class="status status-skipped">Skipped</span> intentionally excluded</li>
+        </ul>
+        <p class="mode-foot">Results show objective counts only — no scores or ratings.</p>
+      </article>
     </div>
   </section>
 
@@ -452,15 +437,15 @@
       <div class="grid grid-2">
         <figure class="shot">
           <img src="assets/img/report-pdf.png"
-               alt="Check Your Backup PDF report cover with health score"
+               alt="Check Your Backup PDF report cover with summary statistics"
                loading="lazy" width="1131" height="1600" />
         </figure>
         <div class="report-copy">
           <ul class="check-list">
-            <li>Corporate PDF with summary, statistics and a corrupted-files table</li>
+            <li>Corporate PDF with summary, objective statistics and a corrupted-files table</li>
             <li>Per-type sections: images, RAW, ZIP, PDF, Office</li>
             <li>CSV export: File, Status, Reason, Size, Extension</li>
-            <li>Dedicated Backup Validation PDF with health score</li>
+            <li>Read-only notice on the cover: <em>Verify before you trust your backup.</em></li>
             <li>Saved straight to the folder you analyzed</li>
           </ul>
         </div>
@@ -696,7 +681,7 @@
         <a class="doc-card" href="docs/user-guide.html">
           <div class="card-icon">📘</div>
           <h3>User guide</h3>
-          <p>Run an integrity check and a backup validation, step by step, and read your results.</p>
+          <p>Run an integrity check step by step and read your per-file results and reports.</p>
           <span class="doc-link">Read the guide →</span>
         </a>
         <a class="doc-card" href="docs/about.html">

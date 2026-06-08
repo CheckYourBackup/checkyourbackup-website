@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Guide — Check Your Backup</title>
-  <meta name="description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup. Install, analyze folders, and read PDF and CSV reports." />
+  <meta name="description" content="Step-by-step guide to run an integrity check with Check Your Backup. Install, analyze a folder, and read PDF and CSV reports." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://checkyourbackup.com/docs/user-guide.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Check Your Backup" />
   <meta property="og:url" content="https://checkyourbackup.com/docs/user-guide.html" />
   <meta property="og:title" content="User Guide — Check Your Backup" />
-  <meta property="og:description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup." />
+  <meta property="og:description" content="Step-by-step guide to run an integrity check with Check Your Backup." />
   <meta property="og:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="User Guide — Check Your Backup" />
-  <meta name="twitter:description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup." />
+  <meta name="twitter:description" content="Step-by-step guide to run an integrity check with Check Your Backup." />
   <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
   <link rel="icon" href="../assets/img/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,41 +59,32 @@
 
         <h2>The workflow</h2>
         <ol>
-          <li><strong>Select a mode</strong> — Integrity Check or Backup Validation.</li>
-          <li><strong>Select your folder(s)</strong> — the folder to analyze (and the backup
-            folder in validation mode).</li>
-          <li><strong>Run the analysis</strong> — watch the live progress bar.</li>
-          <li><strong>Review the results</strong> — per-file details, summary and status legend.</li>
-          <li><strong>Open the report</strong> — the generated PDF (and CSV).</li>
+          <li><strong>Select a folder</strong> — the archive, backup copy or NAS folder you want to verify.</li>
+          <li><strong>Run the analysis</strong> — watch the live progress bar as each file is opened read-only.</li>
+          <li><strong>Review the results</strong> — per-file details in the table, plus objective counts in the summary.</li>
+          <li><strong>Open the report</strong> — the generated PDF (and CSV) saved in the folder you analyzed.</li>
         </ol>
 
-        <h2>Mode 1 — Integrity Check</h2>
-        <p>Scans a single folder and classifies every supported file:</p>
+        <h2>File statuses</h2>
+        <p>Every supported file in the folder is classified as one of:</p>
         <ul>
           <li><strong>Healthy</strong> — opened and verified.</li>
           <li><strong>Corrupted</strong> — damaged / undecodable.</li>
           <li><strong>Suspicious</strong> — opened with warnings.</li>
           <li><strong>Unreadable</strong> — could not be read.</li>
-          <li><strong>Skipped</strong> — intentionally excluded.</li>
+          <li><strong>Skipped</strong> — intentionally excluded (system, hidden, temporary or report files).</li>
         </ul>
-
-        <h2>Mode 2 — Backup Validation</h2>
-        <p>Compares an original folder with its backup (size first, then SHA-256 hash):</p>
-        <ul>
-          <li><strong>Validated</strong> — identical in both.</li>
-          <li><strong>Missing in Backup</strong> — present in the original, absent in the backup.</li>
-          <li><strong>Different Size</strong> — size mismatch.</li>
-          <li><strong>Different Content</strong> — same size but different hash.</li>
-          <li><strong>Extra in Backup</strong> — present only in the backup.</li>
-        </ul>
-        <p>You also get an overall <strong>Backup Health %</strong>.</p>
+        <p>
+          The app shows objective counts only — files analyzed, Healthy, Corrupted, Suspicious,
+          Skipped and data analyzed. There are no scores or ratings.
+        </p>
 
         <h2>Your reports</h2>
         <ul>
-          <li>A corporate <strong>PDF report</strong> with summary, statistics, a corrupted-files
+          <li>A corporate <strong>PDF report</strong> with summary, objective statistics, a corrupted-files
             table and per-type sections (images, RAW, ZIP, PDF, Office).</li>
           <li>A <strong>CSV export</strong> with: File, Status, Reason, Size, Extension.</li>
-          <li>A dedicated <strong>Backup Validation PDF</strong> with the health score.</li>
+          <li>A read-only notice on the PDF cover: <em>Verify before you trust your backup.</em></li>
         </ul>
         <div class="doc-callout">
           Reports are saved directly into the folder you analyzed. Use the
@@ -103,6 +94,7 @@
         <h2>Good practice</h2>
         <ul>
           <li>Don't assume your backups are healthy — verify them regularly.</li>
+          <li>Run a check on each backup copy or archive, not only the original folder.</li>
           <li>Re-run a check after large transfers or disk migrations.</li>
           <li>Keep the PDF/CSV report alongside your archive as proof of its state.</li>
         </ul>

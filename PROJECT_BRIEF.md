@@ -6,8 +6,8 @@ the source of truth for copywriting and structure.
 ## The product in one sentence
 
 Check Your Backup verifies that your files are healthy **before** you trust a
-backup — and can compare an original folder against its backup copy — without
-ever modifying your data.
+backup — by opening each supported file read-only — without ever modifying your
+data.
 
 ## Who it is for
 
@@ -24,9 +24,9 @@ documents them in a clear report.
 ## Core value props (use as feature cards)
 
 1. **Read-only & safe** — never repairs or changes your files.
-2. **Two modes** — Integrity Check and Backup Validation.
+2. **One simple workflow** — select a folder, run an integrity check, review results.
 3. **Wide format support** — images, RAW, ZIP, PDF and Office documents.
-4. **Clear reports** — branded PDF + CSV, plus a Backup Validation report.
+4. **Clear reports** — branded PDF + CSV with objective counts.
 5. **Fast** — multithreaded analysis with a live progress bar.
 6. **Portable** — download, double-click, run. No Python, no admin rights.
 7. **Cross-platform** — Windows 10/11 and macOS (Intel / Apple Silicon).
@@ -40,8 +40,8 @@ documents them in a clear report.
 
 ## How it works (3 steps)
 
-1. **Choose a mode** — Integrity Check or Backup Validation.
-2. **Select your folder(s)** and run the analysis.
+1. **Select a folder** — archive, backup copy or NAS mount.
+2. **Run the analysis** — watch the live progress bar.
 3. **Review the results** and open the generated PDF/CSV report.
 
 ## Status classification (for a legend/visual)
@@ -52,10 +52,7 @@ documents them in a clear report.
 - `Unreadable` — could not be read.
 - `Skipped` — intentionally excluded (system/hidden/temp/report files).
 
-## Backup Validation categories
-
-`Validated` · `Missing in Backup` · `Different Size` · `Different Content` ·
-`Extra in Backup` — plus an overall **Backup Health %**.
+Results show objective counts only — no scores or ratings.
 
 ## Suggested page structure
 
@@ -65,7 +62,7 @@ documents them in a clear report.
 3. **Features** — the value-prop cards above.
 4. **Supported formats** — grid of badges.
 5. **How it works** — 3 steps.
-6. **The two modes** — Integrity Check vs Backup Validation.
+6. **Status legend** — how files are classified.
 7. **Reports** — show what the PDF/CSV deliver (screenshot placeholders).
 8. **Download** — Windows and macOS buttons (link to release artifacts).
 9. **FAQ** — safety, privacy (all local, nothing uploaded), platforms, signing.
@@ -83,6 +80,6 @@ remains with the user. All analysis runs locally — no files are uploaded.
 
 ## Release facts (current)
 
-- Version: 1.0.0
-- Build sizes (reference): macOS app ~88 MB; Windows expected < 100 MB.
-- Distribution: portable builds (`.exe`, `.app`) + optional portable zips.
+- Version: 1.0.7
+- Build sizes (reference): macOS zip ~40 MB; Windows expected < 100 MB.
+- Distribution: portable builds (`.exe`, `.app`) + optional portable zips via GitHub Releases.

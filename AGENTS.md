@@ -22,14 +22,9 @@ branding (logo + colors).
 Apple Silicon) desktop tool that verifies files are healthy **before** you trust
 a backup. It analyzes files **read-only** and never repairs or modifies them.
 
-Two modes:
-
-1. **Integrity Check** — scans a folder and classifies each supported file as
-   `Healthy`, `Corrupted`, `Suspicious`, `Unreadable` or `Skipped`.
-2. **Backup Validation** — compares an *original* folder against a *backup*
-   folder (size first, then SHA-256 hash) and reports: `Validated`,
-   `Missing in Backup`, `Different Size`, `Different Content`, `Extra in Backup`,
-   plus an overall **Backup Health %**.
+Single workflow — **Integrity Check**: scans a folder and classifies each
+supported file as `Healthy`, `Corrupted`, `Suspicious`, `Unreadable` or `Skipped`.
+Results show objective counts only (no scores or ratings).
 
 Supported file types:
 
@@ -41,16 +36,16 @@ Supported file types:
 Key features to highlight on the site:
 
 - Read-only, non-destructive analysis.
-- Corporate **PDF report** + **CSV export** + a dedicated Backup Validation PDF.
+- Corporate **PDF report** + **CSV export** with objective statistics.
 - **Analysis history** stored per user.
 - **Multithreaded** analysis with a responsive progress bar.
 - **Automatic exclusions** of irrelevant files (system, hidden, temp, the app's
   own reports).
-- **Guided onboarding** (how-to steps, mode descriptions, status legend).
+- **Guided onboarding** (how-to steps, status legend, read-only notice).
 - **Portable**: no Python, no admin rights, no extra dependencies — download,
   double-click, run.
 
-Current version: **1.0.0**.
+Current version: **1.0.7**.
 
 ## Branding
 
@@ -78,7 +73,7 @@ etc.) if the website grows. If you do, keep the content, branding and the
 ## Goals / next steps for this website
 
 - Polished, modern, responsive landing page (already scaffolded).
-- Sections: hero, features, supported formats, how it works, the two modes,
+- Sections: hero, features, supported formats, how it works, status legend,
   reports, download (Windows/macOS), FAQ, footer.
 - Add real screenshots of the app when available (placeholders are in place).
 - Wire the download buttons to the real release artifacts (`.exe`, `.app`,
