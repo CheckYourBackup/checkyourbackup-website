@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide — Check Your Backup</title>
+  <meta name="description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup. Install, analyze folders, and read PDF and CSV reports." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://checkyourbackup.com/docs/user-guide.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:url" content="https://checkyourbackup.com/docs/user-guide.html" />
+  <meta property="og:title" content="User Guide — Check Your Backup" />
+  <meta property="og:description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="User Guide — Check Your Backup" />
+  <meta name="twitter:description" content="Step-by-step guide to run an integrity check or backup validation with Check Your Backup." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="../index.html#docs">← Back to documentation</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+        <span class="doc-eyebrow">Documentation</span>
+        <h1>User guide</h1>
+        <p class="doc-meta">Everything you need to analyze a folder and read your results.</p>
+
+        <h2>Installation</h2>
+        <p>
+          Download the build for your system from the
+          <a href="../index.html#download">Download</a> section, unzip it, and run the app.
+          No Python or admin rights are required.
+        </p>
+        <h3>First launch</h3>
+        <p>The builds are not code-signed yet, so your system shows a one-time prompt:</p>
+        <ul>
+          <li><strong>macOS:</strong> double-click, click <strong>OK</strong> on the warning
+            (do not move to Trash), then go to <strong>System Settings → Privacy &amp; Security</strong>
+            and click <strong>Open Anyway</strong>.</li>
+          <li><strong>Windows:</strong> if SmartScreen appears, click <strong>More info</strong>
+            → <strong>Run anyway</strong>.</li>
+        </ul>
+
+        <h2>The workflow</h2>
+        <ol>
+          <li><strong>Select a mode</strong> — Integrity Check or Backup Validation.</li>
+          <li><strong>Select your folder(s)</strong> — the folder to analyze (and the backup
+            folder in validation mode).</li>
+          <li><strong>Run the analysis</strong> — watch the live progress bar.</li>
+          <li><strong>Review the results</strong> — per-file details, summary and status legend.</li>
+          <li><strong>Open the report</strong> — the generated PDF (and CSV).</li>
+        </ol>
+
+        <h2>Mode 1 — Integrity Check</h2>
+        <p>Scans a single folder and classifies every supported file:</p>
+        <ul>
+          <li><strong>Healthy</strong> — opened and verified.</li>
+          <li><strong>Corrupted</strong> — damaged / undecodable.</li>
+          <li><strong>Suspicious</strong> — opened with warnings.</li>
+          <li><strong>Unreadable</strong> — could not be read.</li>
+          <li><strong>Skipped</strong> — intentionally excluded.</li>
+        </ul>
+
+        <h2>Mode 2 — Backup Validation</h2>
+        <p>Compares an original folder with its backup (size first, then SHA-256 hash):</p>
+        <ul>
+          <li><strong>Validated</strong> — identical in both.</li>
+          <li><strong>Missing in Backup</strong> — present in the original, absent in the backup.</li>
+          <li><strong>Different Size</strong> — size mismatch.</li>
+          <li><strong>Different Content</strong> — same size but different hash.</li>
+          <li><strong>Extra in Backup</strong> — present only in the backup.</li>
+        </ul>
+        <p>You also get an overall <strong>Backup Health %</strong>.</p>
+
+        <h2>Your reports</h2>
+        <ul>
+          <li>A corporate <strong>PDF report</strong> with summary, statistics, a corrupted-files
+            table and per-type sections (images, RAW, ZIP, PDF, Office).</li>
+          <li>A <strong>CSV export</strong> with: File, Status, Reason, Size, Extension.</li>
+          <li>A dedicated <strong>Backup Validation PDF</strong> with the health score.</li>
+        </ul>
+        <div class="doc-callout">
+          Reports are saved directly into the folder you analyzed. Use the
+          <strong>Open Report</strong> button to open the PDF straight away.
+        </div>
+
+        <h2>Good practice</h2>
+        <ul>
+          <li>Don't assume your backups are healthy — verify them regularly.</li>
+          <li>Re-run a check after large transfers or disk migrations.</li>
+          <li>Keep the PDF/CSV report alongside your archive as proof of its state.</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

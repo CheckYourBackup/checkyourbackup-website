@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Project — Check Your Backup</title>
+  <meta name="description" content="Learn what Check Your Backup is, who it is for, supported file formats, and how read-only integrity checks protect your data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://checkyourbackup.com/docs/about.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:url" content="https://checkyourbackup.com/docs/about.html" />
+  <meta property="og:title" content="About the Project — Check Your Backup" />
+  <meta property="og:description" content="What Check Your Backup is, who it is for, and exactly what it checks." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About the Project — Check Your Backup" />
+  <meta name="twitter:description" content="What Check Your Backup is, who it is for, and exactly what it checks." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/og-image.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="../index.html#docs">← Back to documentation</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+        <span class="doc-eyebrow">Documentation</span>
+        <h1>About the project</h1>
+        <p class="doc-meta">What Check Your Backup is and what it does.</p>
+
+        <h2>In one sentence</h2>
+        <p>
+          Check Your Backup verifies that your files are healthy <strong>before</strong>
+          you trust a backup — and can compare an original folder against its backup
+          copy — without ever modifying your data.
+        </p>
+
+        <h2>The problem it solves</h2>
+        <p>
+          Backups can silently contain corrupted, truncated or missing files. Most
+          backup systems only check that files <em>exist</em> and can be copied — not
+          that their contents are actually valid. You often find out too late.
+          Check Your Backup opens and validates files so you catch problems up front.
+        </p>
+
+        <h2>Who it is for</h2>
+        <ul>
+          <li>Photographers and creatives with large image / RAW libraries.</li>
+          <li>Anyone migrating data to a new disk, NAS or cloud.</li>
+          <li>People who keep long-term archives and want proof their backups are intact.</li>
+        </ul>
+
+        <h2>What it checks</h2>
+        <ul>
+          <li><strong>Images:</strong> JPG, TIFF, PNG</li>
+          <li><strong>RAW:</strong> CR2, NEF, ARW, DNG</li>
+          <li><strong>Archives:</strong> ZIP (also analyzes images inside the archive)</li>
+          <li><strong>Documents:</strong> PDF, DOCX, XLSX, PPTX</li>
+        </ul>
+
+        <h2>How files are classified</h2>
+        <ul>
+          <li><strong>Healthy</strong> — opened and verified correctly.</li>
+          <li><strong>Corrupted</strong> — damaged or cannot be decoded.</li>
+          <li><strong>Suspicious</strong> — opened but with warning signs (e.g. truncated).</li>
+          <li><strong>Unreadable</strong> — could not be read.</li>
+          <li><strong>Skipped</strong> — intentionally excluded (system / hidden / temporary / report files).</li>
+        </ul>
+
+        <h2>Privacy &amp; safety</h2>
+        <p>
+          All analysis runs locally on your computer — nothing is uploaded. The app is
+          strictly read-only: it documents issues but never repairs or changes your files.
+        </p>
+
+        <div class="doc-callout">
+          Check Your Backup does not certify that files are error-free; it documents known
+          issues detected during analysis. Final responsibility for data verification
+          remains with the user.
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

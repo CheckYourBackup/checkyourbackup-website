@@ -1,0 +1,18 @@
+{
+  "name": "Check Your Backup",
+  "short_name": "Check Your Backup",
+  "description": "Verify your files before you trust your backup.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fa",
+  "theme_color": "#1e3a5f",
+  "icons": [
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

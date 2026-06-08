@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /dist_web/
+
+Sitemap: https://checkyourbackup.com/sitemap.xml
