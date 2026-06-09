@@ -57,9 +57,9 @@
     var meta = document.getElementById("releaseMeta");
     if (meta) {
       meta.textContent =
-        "Free · Portable · Runs locally. Version " +
+        "Free - Portable - Runs locally. Version " +
         data.version +
-        " · Released " +
+        " - Released " +
         formatDate(data.releaseDate);
     }
     var footerVersion = document.getElementById("footerVersion");
@@ -73,7 +73,7 @@
 
       var size = formatBytes(p.bytes);
       var specLine = p.available
-        ? [size, "v" + data.version].filter(Boolean).join(" · ")
+        ? [size, "v" + data.version].filter(Boolean).join(" - ")
         : "Coming soon";
 
       var button;
