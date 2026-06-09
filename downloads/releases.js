@@ -23,9 +23,9 @@ window.CYB_RELEASES = {
       id: "windows",
       name: "Windows",
       detail: "Windows 10 / 11 · 64-bit",
-      file: "downloads/CheckYourBackup-Windows-1.0.7.zip",
-      bytes: 0,
-      available: false // set true once the Windows build is added here
+      file: "https://github.com/CheckYourBackup/downloads/raw/main/CheckYourBackup-Windows-1.0.7.zip",
+      bytes: 46001085,
+      available: true
     },
     {
       id: "macos",

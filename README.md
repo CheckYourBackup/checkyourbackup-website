@@ -54,12 +54,11 @@ automatically from [`downloads/releases.js`](downloads/releases.js). To publish 
 new version, drop the build zip into `downloads/` and edit that one file. See
 [`downloads/README.md`](downloads/README.md) for details.
 
-Current status: **macOS build published**; the **Windows build is pending**
-(must be built on Windows — see `downloads/README.md`).
+Current status: **Windows and macOS builds published** for v1.0.7 via the
+[`CheckYourBackup/downloads`](https://github.com/CheckYourBackup/downloads) repo.
 
 ## Next steps
 
-- Add the Windows build zip to `downloads/` and flip it to `available: true`.
 - The Reports section now uses a real PDF cover (`assets/img/report-pdf.png`).
   Add app UI screenshots (e.g. for the hero) when available.
 - Optionally migrate to a framework (Astro / Vite / Next.js) if the site grows.

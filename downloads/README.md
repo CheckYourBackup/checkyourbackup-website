@@ -9,8 +9,8 @@ version.
 
 | File | Platform | Status |
 |------|----------|--------|
-| `CheckYourBackup-macOS-1.0.0.zip` | macOS (Intel / Apple Silicon) | Published |
-| `CheckYourBackup-Windows-1.0.0.zip` | Windows 10 / 11 | **Pending** — build on Windows and drop it here |
+| `CheckYourBackup-Windows-1.0.7.zip` | Windows 10 / 11 | Published |
+| `CheckYourBackup-macOS-1.0.7.zip` | macOS (Intel / Apple Silicon) | Published |
 
 > The Windows build must be produced on a Windows machine (PyInstaller does not
 > cross-compile). Use `CheckYourBackup/scripts/build_windows.bat`, then copy the
