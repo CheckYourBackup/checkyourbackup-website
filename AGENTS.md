@@ -84,3 +84,42 @@ etc.) if the website grows. If you do, keep the content, branding and the
 - Do **not** add the Python app's code, dependencies, or build files here.
 - Keep the site usable by simply opening `index.html` (or a static server).
 - Maintain the brand palette above for visual consistency with the app.
+
+## Cursor Cloud specific instructions
+
+This repo has **no package manager, no install step, and no automated lint or test suite**.
+Python 3 is preinstalled on the VM and is the preferred way to serve the site locally.
+
+### Run (development)
+
+From the repo root:
+
+```bash
+python3 -m http.server 5173
+```
+
+Then open http://localhost:5173. Use a tmux session if the server must stay running in the
+background. `npx serve .` also works but requires network for the one-off `serve` download.
+
+### Build (deploy bundle only)
+
+Optional — copies static assets into `dist_web/` for FTP upload:
+
+```bash
+bash scripts/build_dist_web.sh
+```
+
+### Lint / test
+
+Not configured. Quick manual checks that work without adding tooling:
+
+- `node --check assets/js/main.js` and `node --check downloads/releases.js` (syntax only)
+- `curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/` after starting the server
+
+### Gotchas
+
+- Download buttons and version text are rendered client-side from `downloads/releases.js`; serve
+  over HTTP (not `file://`) so the script loads correctly.
+- Google Fonts load from the CDN at runtime; the page needs network access for Inter.
+- Release zips are hosted on GitHub (`CheckYourBackup/downloads`); local `downloads/` may only
+  contain `releases.js` metadata.
