@@ -15,7 +15,7 @@ echo "==> Building $OUT"
 rm -rf "$OUT"
 mkdir -p "$OUT/downloads"
 
-cp "$ROOT/index.html" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$ROOT/site.webmanifest" "$OUT/"
+cp "$ROOT/index.html" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$ROOT/site.webmanifest" "$ROOT/.htaccess" "$OUT/"
 cp -R "$ROOT/assets" "$ROOT/docs" "$OUT/"
 cp "$ROOT/downloads/releases.js" "$OUT/downloads/"
 
@@ -36,6 +36,7 @@ NO subas la carpeta "dist_web" en sí: sube lo que hay DENTRO
 
 Estructura que debe quedar en el servidor:
   public_html/
+  ├── .htaccess
   ├── index.html
   ├── robots.txt
   ├── sitemap.xml
