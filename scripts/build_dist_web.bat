@@ -17,7 +17,6 @@ mkdir "%OUT%\downloads"
 copy /y "%ROOT%\index.html" "%OUT%\" >nul
 copy /y "%ROOT%\robots.txt" "%OUT%\" >nul
 copy /y "%ROOT%\sitemap.xml" "%OUT%\" >nul
-if exist "%ROOT%\sitemap.php" copy /y "%ROOT%\sitemap.php" "%OUT%\" >nul
 copy /y "%ROOT%\site.webmanifest" "%OUT%\" >nul
 if exist "%ROOT%\.htaccess" copy /y "%ROOT%\.htaccess" "%OUT%\" >nul
 
@@ -45,7 +44,6 @@ echo   +-- .htaccess
 echo   +-- index.html
 echo   +-- robots.txt
 echo   +-- sitemap.xml
-echo   +-- sitemap.php
 echo   +-- site.webmanifest
 echo   +-- assets/          ^(css, js, img incl. blog/^)
 echo   +-- docs/            ^(user-guide, about, changelog^)
