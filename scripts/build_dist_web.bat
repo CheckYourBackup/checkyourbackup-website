@@ -26,44 +26,6 @@ if exist "%ROOT%\blog" xcopy /e /i /q /y "%ROOT%\blog" "%OUT%\blog\" >nul
 
 copy /y "%ROOT%\downloads\releases.js" "%OUT%\downloads\" >nul
 
-> "%OUT%\LEEME-FTP.txt" (
-echo CARPETA LISTA PARA SUBIR - Check Your Backup
-echo ============================================
-echo.
-echo Sube TODO el contenido de esta carpeta ^(dist_web/^) al directorio
-echo publico de tu dominio en Freehostia:
-echo.
-echo   checkyourbackup.com/public_html/
-echo.
-echo NO subas la carpeta "dist_web" en si: sube lo que hay DENTRO
-echo ^(index.html, assets/, docs/, downloads/, etc.^).
-echo.
-echo Estructura que debe quedar en el servidor:
-echo   public_html/
-echo   +-- .htaccess
-echo   +-- index.html
-echo   +-- robots.txt
-echo   +-- sitemap.xml
-echo   +-- site.webmanifest
-echo   +-- assets/          ^(css, js, img incl. blog/^)
-echo   +-- docs/            ^(user-guide, about, changelog^)
-echo   +-- blog/            ^(articles and blog index^)
-echo   +-- downloads/
-echo       +-- releases.js  ^(metadatos de descarga - imprescindible^)
-echo.
-echo NO incluido a proposito:
-echo   - CheckYourBackup-macOS-1.0.0.zip  ^(se descarga desde GitHub^)
-echo   - AGENTS.md, README.md, etc.       ^(notas de desarrollo^)
-echo.
-echo Regenerar esta carpeta tras cambios en la web:
-echo   scripts\build_dist_web.bat   ^(Windows^)
-echo   bash scripts/build_dist_web.sh
-echo.
-echo Tras subir, comprueba:
-echo   https://checkyourbackup.com/
-echo   https://checkyourbackup.com/downloads/releases.js
-)
-
 for /f %%A in ('dir /s /b /a-d "%OUT%" ^| find /c /v ""') do set FILECOUNT=%%A
 
 echo.

@@ -22,44 +22,6 @@ cp "$ROOT/downloads/releases.js" "$OUT/downloads/"
 # Remove macOS junk if present
 find "$OUT" -name '.DS_Store' -delete 2>/dev/null || true
 
-cat > "$OUT/LEEME-FTP.txt" << 'EOF'
-CARPETA LISTA PARA SUBIR — Check Your Backup
-============================================
-
-Sube TODO el contenido de esta carpeta (dist_web/) al directorio
-público de tu dominio en Freehostia:
-
-  checkyourbackup.com/public_html/
-
-NO subas la carpeta "dist_web" en sí: sube lo que hay DENTRO
-(index.html, assets/, docs/, downloads/, etc.).
-
-Estructura que debe quedar en el servidor:
-  public_html/
-  ├── .htaccess
-  ├── index.html
-  ├── robots.txt
-  ├── sitemap.xml
-  ├── site.webmanifest
-  ├── assets/          (css, js, img — incl. og-image.png y blog/)
-  ├── docs/            (user-guide, about, changelog)
-  ├── blog/            (articles and blog index)
-  └── downloads/
-      └── releases.js  (metadatos de descarga — imprescindible)
-
-NO incluido a propósito:
-  - CheckYourBackup-macOS-1.0.0.zip  (se descarga desde GitHub)
-  - AGENTS.md, README.md, etc.       (notas de desarrollo)
-
-Regenerar esta carpeta tras cambios en la web:
-  scripts/build_dist_web.bat   (Windows)
-  bash scripts/build_dist_web.sh
-
-Tras subir, comprueba:
-  https://checkyourbackup.com/
-  https://checkyourbackup.com/downloads/releases.js
-EOF
-
 echo ""
 echo "Done. Upload the CONTENTS of dist_web/ to:"
 echo "  checkyourbackup.com/public_html/"
