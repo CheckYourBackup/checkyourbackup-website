@@ -15,7 +15,7 @@ echo "==> Building $OUT"
 rm -rf "$OUT"
 mkdir -p "$OUT/downloads"
 
-cp "$ROOT/index.html" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$ROOT/site.webmanifest" "$ROOT/.htaccess" "$OUT/"
+cp "$ROOT/index.html" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$ROOT/sitemap.php" "$ROOT/site.webmanifest" "$ROOT/.htaccess" "$OUT/"
 cp -R "$ROOT/assets" "$ROOT/docs" "$ROOT/blog" "$OUT/"
 cp "$ROOT/downloads/releases.js" "$OUT/downloads/"
 
@@ -40,8 +40,9 @@ Estructura que debe quedar en el servidor:
   ├── index.html
   ├── robots.txt
   ├── sitemap.xml
+  ├── sitemap.php
   ├── site.webmanifest
-  ├── assets/          (css, js, img — incl. og-image.png para redes)
+  ├── assets/          (css, js, img — incl. og-image.png y blog/)
   ├── docs/            (user-guide, about, changelog)
   ├── blog/            (articles and blog index)
   └── downloads/

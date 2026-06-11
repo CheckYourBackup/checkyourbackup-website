@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /dist_web/
 
-Sitemap: https://checkyourbackup.com/sitemap.xml
+Sitemap: https://checkyourbackup.com/sitemap.php
