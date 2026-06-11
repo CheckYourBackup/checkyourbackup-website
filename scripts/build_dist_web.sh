@@ -52,6 +52,7 @@ NO incluido a propósito:
   - AGENTS.md, README.md, etc.       (notas de desarrollo)
 
 Regenerar esta carpeta tras cambios en la web:
+  scripts/build_dist_web.bat   (Windows)
   bash scripts/build_dist_web.sh
 
 Tras subir, comprueba:
