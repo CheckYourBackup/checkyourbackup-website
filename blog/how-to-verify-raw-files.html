@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Verify RAW Files — NEF, CR2, ARW &amp; DNG Integrity — Check Your Backup Blog</title>
+  <meta name="description" content="Learn how to verify RAW files (NEF, CR2, ARW, DNG) before backup. Detect corrupted or truncated RAW photos read-only and protect your photography archive from silent data loss." />
+  <meta name="keywords" content="verify RAW files, RAW file verification, corrupted RAW, NEF CR2 ARW DNG, RAW integrity check, photo archive verification, detect corrupted RAW, backup integrity" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://checkyourbackup.com/blog/how-to-verify-raw-files.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://checkyourbackup.com/blog/how-to-verify-raw-files.html" />
+  <meta property="og:title" content="How to Verify RAW Files — NEF, CR2, ARW &amp; DNG Integrity" />
+  <meta property="og:description" content="Learn how to verify RAW files (NEF, CR2, ARW, DNG) before backup. Detect corrupted or truncated RAW photos read-only and protect your photography archive." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/blog/verify-raw-files.png" />
+  <meta property="og:image:alt" content="A Fujifilm RAW (.RAF) landscape photo open in a photo viewer showing histogram and EXIF metadata." />
+  <meta property="article:published_time" content="2026-06-10" />
+  <meta property="article:author" content="Manuel Pinar" />
+  <meta property="article:section" content="RAW Verification" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Verify RAW Files — NEF, CR2, ARW &amp; DNG Integrity" />
+  <meta name="twitter:description" content="Learn how to verify RAW files (NEF, CR2, ARW, DNG) before backup and protect your photography archive from silent data loss." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/blog/verify-raw-files.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Verify RAW Files",
+    "description": "Learn how to verify RAW files (NEF, CR2, ARW, DNG) before backup. Detect corrupted or truncated RAW photos read-only and protect your photography archive from silent data loss.",
+    "url": "https://checkyourbackup.com/blog/how-to-verify-raw-files.html",
+    "datePublished": "2026-06-10",
+    "dateModified": "2026-06-10",
+    "inLanguage": "en",
+    "articleSection": "RAW Verification",
+    "author": {
+      "@type": "Person",
+      "name": "Manuel Pinar"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Check Your Backup",
+      "url": "https://checkyourbackup.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkyourbackup.com/assets/img/logo.png"
+      }
+    },
+    "image": "https://checkyourbackup.com/assets/img/blog/verify-raw-files.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://checkyourbackup.com/blog/how-to-verify-raw-files.html"
+    },
+    "keywords": [
+      "verify RAW files",
+      "RAW file verification",
+      "corrupted RAW",
+      "NEF CR2 ARW DNG",
+      "RAW integrity check",
+      "photo archive verification",
+      "backup integrity"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkyourbackup.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://checkyourbackup.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Verify RAW Files",
+        "item": "https://checkyourbackup.com/blog/how-to-verify-raw-files.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="index.html">← Back to Blog</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="index.html">Blog</a> / <span aria-current="page">Verify RAW Files</span>
+        </nav>
+        <span class="doc-eyebrow">Blog · RAW Verification</span>
+        <h1>How to Verify RAW Files</h1>
+        <p class="doc-meta">Published June 10, 2026 · By Manuel Pinar · RAW verification · Photo archive</p>
+
+        <p>
+          RAW files are the digital negatives of modern photography. They hold the maximum
+          amount of image data your camera can capture, and they are often irreplaceable.
+          Yet RAW files can become corrupted, truncated or unreadable just like any other
+          file, frequently without any visible warning.
+        </p>
+        <p>
+          This guide explains how to <strong>verify RAW files</strong> such as NEF, CR2, ARW
+          and DNG before you archive them, so silent corruption never spreads across every
+          backup you own.
+        </p>
+
+        <figure class="blog-figure">
+          <img src="../assets/img/blog/verify-raw-files.png" width="1024" height="683"
+               alt="A Fujifilm X-T4 RAW (.RAF) landscape photo open in a photo viewer, showing histogram, EXIF and IPTC metadata."
+               loading="lazy" />
+          <figcaption>A RAW file may show a perfect preview and full metadata, yet the underlying image data must still be decoded to confirm it is intact.</figcaption>
+        </figure>
+
+        <h2>Why RAW Files Need Verification</h2>
+        <p>
+          Many photographers assume that if a RAW file copies successfully, it is safe.
+          In reality, the copy process only confirms that the bytes were transferred, not
+          that the RAW data inside can still be decoded into an image.
+        </p>
+        <p>
+          A damaged RAW file may still show:
+        </p>
+        <ul>
+          <li>The correct filename and extension</li>
+          <li>The expected file size</li>
+          <li>A valid embedded JPG preview thumbnail</li>
+          <li>Normal metadata in your catalog</li>
+        </ul>
+        <div class="doc-callout">
+          A backup of a corrupted RAW file is still a corrupted RAW file.
+        </div>
+        <p>
+          The embedded preview is especially deceptive: a file browser or catalog may display
+          a perfectly normal thumbnail while the actual RAW image data behind it is already
+          damaged. For background on why this happens, see
+          <a href="what-is-bit-rot.html">What Is Bit Rot?</a>
+        </p>
+
+        <h2>RAW Formats You Should Verify</h2>
+        <p>
+          Each camera manufacturer uses its own RAW container. The most common are:
+        </p>
+        <ul>
+          <li><strong>NEF</strong>: Nikon</li>
+          <li><strong>CR2 / CR3</strong>: Canon</li>
+          <li><strong>ARW</strong>: Sony</li>
+          <li><strong>DNG</strong>: Adobe Digital Negative (used by many cameras and converters)</li>
+          <li><strong>RAF</strong>: Fujifilm</li>
+          <li><strong>ORF</strong>: Olympus / OM System</li>
+          <li><strong>RW2</strong>: Panasonic</li>
+        </ul>
+        <p>
+          Whatever format you shoot, the principle is the same: the file must be opened and
+          decoded, not just checked by name, size or thumbnail.
+        </p>
+
+        <h2>How RAW Corruption Happens</h2>
+        <p>
+          RAW files can be damaged at many points in a photography workflow:
+        </p>
+        <ul>
+          <li>Removing a memory card during a write operation</li>
+          <li>A failing or counterfeit memory card</li>
+          <li>Interrupted transfers from card to computer or NAS</li>
+          <li>Aging hard drives and SSD degradation</li>
+          <li>Bit rot in long-term archives</li>
+          <li>Power loss or crashes during import or editing</li>
+        </ul>
+        <p>
+          Because RAW files are large and archived for years, problems often surface long
+          after the original card has been reused or the shoot can no longer be repeated.
+        </p>
+
+        <h2>Step-by-Step: Verify Your RAW Files</h2>
+        <p>Use this workflow whenever you import or archive RAW photos:</p>
+        <ol>
+          <li><strong>Verify on import</strong>: check RAW files right after copying them from the memory card, while the card is still intact.</li>
+          <li><strong>Open and decode each file</strong>: confirm the RAW data is readable, not just the embedded preview.</li>
+          <li><strong>Review flagged files</strong>: identify corrupted, suspicious or truncated RAW files.</li>
+          <li><strong>Re-copy from the card</strong>: if a file failed and the card is still available, copy it again before formatting.</li>
+          <li><strong>Archive only verified files</strong>: back up to NAS, cloud or external drives once you know the RAW data is intact.</li>
+          <li><strong>Re-check periodically</strong>: run integrity scans on long-term RAW archives, not just on new imports.</li>
+        </ol>
+
+        <h2>Manual Checks vs Automated Verification</h2>
+        <p>
+          You can open RAW files one by one in Lightroom, Capture One or your camera
+          manufacturer's software. This works for a handful of files, but a single shoot can
+          produce hundreds of RAW images and an archive can hold hundreds of thousands.
+        </p>
+        <p>
+          Automated verification opens and decodes every RAW file read-only and reports which
+          ones are healthy and which need attention, far faster and more reliable than manual
+          spot checks. See
+          <a href="how-to-detect-corrupted-photos-before-backup.html">How to Detect Corrupted Photos Before Backup</a>
+          for the broader workflow across all image formats.
+        </p>
+
+        <h2>What to Do When a RAW File Fails</h2>
+        <ul>
+          <li>Check whether the original memory card still holds an intact copy</li>
+          <li>Look for an earlier backup made before the corruption appeared</li>
+          <li>Do not overwrite the damaged file until you confirm a healthy replacement</li>
+          <li>Keep the embedded JPG preview if the RAW data is unrecoverable; it may be your only surviving image</li>
+          <li>Document the loss in a report for clients or your own records</li>
+        </ul>
+
+        <h2>How Check Your Backup Helps</h2>
+        <p>
+          <a href="../index.html">Check Your Backup</a> was designed for photographer RAW
+          workflows. The software:
+        </p>
+        <ul>
+          <li>Opens and decodes NEF, CR2, ARW and DNG files read-only</li>
+          <li>Verifies entire RAW archives recursively</li>
+          <li>Flags corrupted, truncated and unreadable RAW files</li>
+          <li>Also checks JPG, JPEG, TIFF, TIF and PNG</li>
+          <li>Generates PDF and CSV integrity reports</li>
+          <li>Never modifies or uploads your files</li>
+        </ul>
+        <p>
+          All analysis runs locally on your Windows or macOS computer. Your RAW files stay on
+          your machine throughout the entire process.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          RAW files are the foundation of a photography archive, and a successful copy does not
+          guarantee that the image data inside is still valid. Verifying RAW files (opening and
+          decoding each one before you archive it) is the most reliable way to protect work you
+          cannot reshoot.
+        </p>
+        <p>
+          Verify on import. Decode every file. Archive only what you know is readable.
+        </p>
+
+        <aside class="blog-related">
+          <h2 class="blog-related-title">Related articles</h2>
+          <ul class="blog-related-list">
+            <li><a href="how-to-detect-corrupted-photos-before-backup.html">How to Detect Corrupted Photos Before Backup</a></li>
+            <li><a href="why-nas-backups-dont-detect-corrupted-photos.html">Why NAS Backups Don't Detect Corrupted Photos</a></li>
+            <li><a href="what-is-bit-rot.html">What Is Bit Rot? Understanding Silent Data Corruption</a></li>
+          </ul>
+        </aside>
+
+        <div class="blog-cta">
+          <h2 class="blog-cta-title">Download Check Your Backup</h2>
+          <p class="blog-cta-text">Verify your RAW files read-only before you trust your backup.</p>
+          <a class="btn btn-primary" href="../index.html#download">Download Free</a>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+          <a class="btn btn-primary" href="../index.html#download">Download Check Your Backup</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Site links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../docs/user-guide.html">User guide</a>
+        <a href="../docs/about.html">About</a>
+        <a href="../sitemap.php">Sitemap</a>
+      </nav>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

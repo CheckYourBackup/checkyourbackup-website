@@ -16,7 +16,7 @@ rm -rf "$OUT"
 mkdir -p "$OUT/downloads"
 
 cp "$ROOT/index.html" "$ROOT/robots.txt" "$ROOT/sitemap.xml" "$ROOT/site.webmanifest" "$ROOT/.htaccess" "$OUT/"
-cp -R "$ROOT/assets" "$ROOT/docs" "$OUT/"
+cp -R "$ROOT/assets" "$ROOT/docs" "$ROOT/blog" "$OUT/"
 cp "$ROOT/downloads/releases.js" "$OUT/downloads/"
 
 # Remove macOS junk if present
@@ -43,6 +43,7 @@ Estructura que debe quedar en el servidor:
   ├── site.webmanifest
   ├── assets/          (css, js, img — incl. og-image.png para redes)
   ├── docs/            (user-guide, about, changelog)
+  ├── blog/            (articles and blog index)
   └── downloads/
       └── releases.js  (metadatos de descarga — imprescindible)
 

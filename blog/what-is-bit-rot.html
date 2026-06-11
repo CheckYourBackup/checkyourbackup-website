@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is Bit Rot? Understanding Silent Data Corruption — Check Your Backup Blog</title>
+  <meta name="description" content="Learn what bit rot is, how silent data corruption affects photos and archives, and why backups alone may not protect your files from long-term data degradation." />
+  <meta name="keywords" content="bit rot, silent data corruption, photo corruption, NAS integrity, corrupted files, digital preservation, archive verification, backup integrity" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://checkyourbackup.com/blog/what-is-bit-rot.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://checkyourbackup.com/blog/what-is-bit-rot.html" />
+  <meta property="og:title" content="What Is Bit Rot? Understanding Silent Data Corruption" />
+  <meta property="og:description" content="Learn what bit rot is, how silent data corruption affects photos and archives, and why backups alone may not protect your files from long-term data degradation." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/blog/what-is-bit-rot.png" />
+  <meta property="og:image:alt" content="What is bit rot: understanding silent data corruption in photos, archives and backups." />
+  <meta property="article:published_time" content="2026-06-10" />
+  <meta property="article:author" content="Manuel Pinar" />
+  <meta property="article:section" content="Data Integrity" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is Bit Rot? Understanding Silent Data Corruption" />
+  <meta name="twitter:description" content="Learn what bit rot is, how silent data corruption affects photos and archives, and why backups alone may not protect your files from long-term data degradation." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/blog/what-is-bit-rot.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is Bit Rot? Understanding Silent Data Corruption",
+    "description": "Learn what bit rot is, how silent data corruption affects photos and archives, and why backups alone may not protect your files from long-term data degradation.",
+    "url": "https://checkyourbackup.com/blog/what-is-bit-rot.html",
+    "datePublished": "2026-06-10",
+    "dateModified": "2026-06-10",
+    "inLanguage": "en",
+    "articleSection": "Data Integrity",
+    "author": {
+      "@type": "Person",
+      "name": "Manuel Pinar"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Check Your Backup",
+      "url": "https://checkyourbackup.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkyourbackup.com/assets/img/logo.png"
+      }
+    },
+    "image": "https://checkyourbackup.com/assets/img/blog/what-is-bit-rot.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://checkyourbackup.com/blog/what-is-bit-rot.html"
+    },
+    "keywords": [
+      "bit rot",
+      "silent data corruption",
+      "photo corruption",
+      "NAS integrity",
+      "corrupted files",
+      "digital preservation",
+      "archive verification",
+      "backup integrity"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkyourbackup.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://checkyourbackup.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is Bit Rot? Understanding Silent Data Corruption",
+        "item": "https://checkyourbackup.com/blog/what-is-bit-rot.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="index.html">← Back to Blog</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="index.html">Blog</a> / <span aria-current="page">What Is Bit Rot?</span>
+        </nav>
+        <span class="doc-eyebrow">Blog · Data Integrity</span>
+        <h1>What Is Bit Rot? Understanding Silent Data Corruption</h1>
+        <p class="doc-meta">Published June 10, 2026 · By Manuel Pinar · Bit rot · Data integrity</p>
+
+        <p>
+          Most people assume that digital files remain unchanged forever.
+        </p>
+        <p>
+          Unfortunately, digital storage is not perfect.
+        </p>
+        <p>
+          Over time, files can become damaged without any visible warning signs.
+        </p>
+        <p>
+          This phenomenon is commonly known as <strong>bit rot</strong>.
+        </p>
+        <p>
+          Although relatively rare, bit rot can affect valuable photos, documents, videos and
+          archives stored on hard drives, SSDs, NAS systems and other storage media.
+        </p>
+
+        <figure class="blog-figure">
+          <img src="../assets/img/blog/what-is-bit-rot.png" width="820" height="461"
+               alt="What is bit rot: silent data corruption affecting photos, hard drives, NAS storage and archives."
+               loading="lazy" />
+          <figcaption>Silent data corruption can damage files over time without any visible warning until you try to open them.</figcaption>
+        </figure>
+
+        <h2>What Is Bit Rot?</h2>
+        <p>
+          Bit rot is a form of silent data corruption.
+        </p>
+        <p>
+          It occurs when one or more bits inside a file change unexpectedly over time.
+        </p>
+        <p>
+          These changes may happen without any user action and often without generating any error message.
+        </p>
+        <p>
+          A single altered bit can be enough to damage a photo, document or archive.
+        </p>
+        <p>
+          In severe cases, entire files become unreadable.
+        </p>
+
+        <h2>Why Is It Called Silent Corruption?</h2>
+        <p>
+          Bit rot is often described as silent corruption because users usually do not notice it when it happens.
+        </p>
+        <p>The file:</p>
+        <ul>
+          <li>Still exists</li>
+          <li>Has the same filename</li>
+          <li>Often keeps the same size</li>
+          <li>Appears normal in the folder</li>
+        </ul>
+        <p>
+          The problem only becomes visible when someone tries to open the file.
+        </p>
+        <p>
+          By then, the corruption may have existed for months or even years.
+        </p>
+
+        <h2>What Causes Bit Rot?</h2>
+        <p>Several factors can contribute to silent data corruption:</p>
+        <ul>
+          <li>Aging storage media</li>
+          <li>Hard drive failures</li>
+          <li>SSD memory degradation</li>
+          <li>Magnetic decay</li>
+          <li>Firmware bugs</li>
+          <li>Faulty RAM</li>
+          <li>Power interruptions</li>
+          <li>Transfer errors</li>
+          <li>Long-term storage without verification</li>
+        </ul>
+        <p>In many cases there is no single obvious cause.</p>
+
+        <h2>Can Bit Rot Affect Photos?</h2>
+        <p>Yes.</p>
+        <p>
+          Photographs are particularly vulnerable because many users archive them for years without opening them.
+        </p>
+        <p>A corrupted image may:</p>
+        <ul>
+          <li>Fail to open completely</li>
+          <li>Show missing areas</li>
+          <li>Display unexpected colors</li>
+          <li>Produce decoding errors</li>
+          <li>Become partially unreadable</li>
+        </ul>
+        <p>Affected formats can include:</p>
+        <ul>
+          <li>JPG</li>
+          <li>JPEG</li>
+          <li>TIFF</li>
+          <li>PNG</li>
+          <li>NEF</li>
+          <li>CR2</li>
+          <li>ARW</li>
+          <li>DNG</li>
+        </ul>
+
+        <h2>Can Backups Protect Against Bit Rot?</h2>
+        <p>Backups are essential.</p>
+        <p>
+          However, backups alone do not automatically prevent bit rot.
+        </p>
+        <p>
+          If a corrupted file is copied into a backup, the corruption may also be copied.
+        </p>
+        <p>
+          Over time, multiple backup copies can contain the same damaged file.
+        </p>
+        <p>This is why the following statement is important:</p>
+        <div class="doc-callout">
+          A backup of a corrupted file is still a corrupted file.
+        </div>
+        <p>Backups protect against loss.</p>
+        <p>Integrity verification protects against corruption.</p>
+        <p>Both are necessary.</p>
+
+        <h2>How NAS Systems Handle Bit Rot</h2>
+        <p>
+          Many NAS systems provide excellent storage reliability.
+        </p>
+        <p>
+          Some advanced file systems include protection mechanisms such as checksums and integrity validation.
+        </p>
+        <p>However, protection levels vary depending on:</p>
+        <ul>
+          <li>Hardware configuration</li>
+          <li>RAID level</li>
+          <li>File system</li>
+          <li>Operating system</li>
+          <li>Backup software</li>
+        </ul>
+        <p>
+          Users should never assume that long-term integrity verification is happening automatically.
+        </p>
+        <p>Regular verification remains important.</p>
+
+        <h2>How to Detect Bit Rot</h2>
+        <p>The most reliable approach is periodic integrity verification.</p>
+        <p>
+          Important files should be checked regularly to confirm that they remain readable.
+        </p>
+        <p>For photo archives this means:</p>
+        <ul>
+          <li>Opening image files</li>
+          <li>Verifying RAW files</li>
+          <li>Checking documents</li>
+          <li>Monitoring backup copies</li>
+          <li>Generating integrity reports</li>
+        </ul>
+        <p>
+          Regular verification helps identify corruption before it becomes permanent.
+        </p>
+
+        <h2>How Check Your Backup Helps</h2>
+        <p>
+          Check Your Backup helps detect signs of file corruption before they become a disaster.
+        </p>
+        <p>The software:</p>
+        <ul>
+          <li>Opens supported files read-only</li>
+          <li>Detects corrupted photos</li>
+          <li>Detects unreadable files</li>
+          <li>Verifies photo archives</li>
+          <li>Generates integrity reports</li>
+          <li>Never modifies your files</li>
+        </ul>
+        <p>All analysis runs locally on your computer.</p>
+        <p>Nothing is uploaded.</p>
+        <p>Nothing is changed.</p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Bit rot is one of the least understood risks in digital preservation.
+        </p>
+        <p>
+          Files can slowly become corrupted without obvious warning signs, even when backups exist.
+        </p>
+        <p>The best protection combines:</p>
+        <ul>
+          <li>Reliable backups</li>
+          <li>Multiple storage copies</li>
+          <li>Periodic integrity verification</li>
+        </ul>
+        <p>
+          Your backups are only valuable if the files inside them are still readable.
+        </p>
+
+        <aside class="blog-related">
+          <h2 class="blog-related-title">Related articles</h2>
+          <ul class="blog-related-list">
+            <li><a href="how-to-detect-corrupted-photos-before-backup.html">How to Detect Corrupted Photos Before Backup</a></li>
+            <li><a href="how-to-verify-raw-files.html">How to Verify RAW Files</a></li>
+            <li><a href="why-nas-backups-dont-detect-corrupted-photos.html">Why NAS Backups Don't Detect Corrupted Photos</a></li>
+            <li><a href="how-i-discovered-corrupted-files-in-my-photo-archive.html">How I Discovered Corrupted Files in My Photo Archive</a></li>
+          </ul>
+        </aside>
+
+        <div class="blog-cta">
+          <h2 class="blog-cta-title">Download Check Your Backup</h2>
+          <p class="blog-cta-text">Detect corrupted files before they spread across your backups.</p>
+          <a class="btn btn-primary" href="../index.html#download">Download Free</a>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Site links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../docs/user-guide.html">User guide</a>
+        <a href="../docs/about.html">About</a>
+        <a href="../sitemap.php">Sitemap</a>
+      </nav>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I Discovered Corrupted Files in My Photo Archive — Check Your Backup Blog</title>
+  <meta name="description" content="Professional photographer Manuel Pinar shares how corrupted photos silently spread across years of backups, and why he built Check Your Backup to verify image archives before data loss becomes permanent." />
+  <meta name="keywords" content="corrupted photo archive, photo backup failure, Manuel Pinar, large format photography, RAW archive verification, backup integrity, data loss prevention" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://checkyourbackup.com/blog/how-i-discovered-corrupted-files-in-my-photo-archive.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://checkyourbackup.com/blog/how-i-discovered-corrupted-files-in-my-photo-archive.html" />
+  <meta property="og:title" content="How I Discovered Corrupted Files in My Photo Archive" />
+  <meta property="og:description" content="Professional photographer Manuel Pinar shares how corrupted photos silently spread across years of backups, and why he built Check Your Backup." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/blog/verify-photos-before-disaster.png" />
+  <meta property="og:image:alt" content="Verify photo archives before corrupted files become permanent data loss." />
+  <meta property="article:published_time" content="2026-06-10" />
+  <meta property="article:author" content="Manuel Pinar" />
+  <meta property="article:section" content="Personal Story" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How I Discovered Corrupted Files in My Photo Archive" />
+  <meta name="twitter:description" content="Professional photographer Manuel Pinar shares how corrupted photos silently spread across years of backups, and why he built Check Your Backup." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/blog/verify-photos-before-disaster.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How I Discovered Corrupted Files in My Photo Archive",
+    "description": "Professional photographer Manuel Pinar shares how corrupted photos silently spread across years of backups, and why he built Check Your Backup to verify image archives before data loss becomes permanent.",
+    "url": "https://checkyourbackup.com/blog/how-i-discovered-corrupted-files-in-my-photo-archive.html",
+    "datePublished": "2026-06-10",
+    "dateModified": "2026-06-10",
+    "inLanguage": "en",
+    "articleSection": "Personal Story",
+    "author": {
+      "@type": "Person",
+      "name": "Manuel Pinar",
+      "jobTitle": "Creator of Check Your Backup"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Check Your Backup",
+      "url": "https://checkyourbackup.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkyourbackup.com/assets/img/logo.png"
+      }
+    },
+    "image": "https://checkyourbackup.com/assets/img/blog/verify-photos-before-disaster.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://checkyourbackup.com/blog/how-i-discovered-corrupted-files-in-my-photo-archive.html"
+    },
+    "keywords": [
+      "corrupted photo archive",
+      "photo backup failure",
+      "Manuel Pinar",
+      "Check Your Backup",
+      "RAW archive verification",
+      "backup integrity"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkyourbackup.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://checkyourbackup.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How I Discovered Corrupted Files in My Photo Archive",
+        "item": "https://checkyourbackup.com/blog/how-i-discovered-corrupted-files-in-my-photo-archive.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="index.html">← Back to Blog</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="index.html">Blog</a> / <span aria-current="page">My Photo Archive Story</span>
+        </nav>
+        <span class="doc-eyebrow">Blog · Personal Story</span>
+        <h1>How I Discovered Corrupted Files in My Photo Archive</h1>
+        <p class="doc-meta">Published June 10, 2026 · By Manuel Pinar · Photo archive · Backup integrity</p>
+
+        <div class="author">
+          <img class="author-photo" src="../assets/img/manuel-pinar.jpg"
+               alt="Portrait of Manuel Pinar, creator of Check Your Backup" loading="lazy"
+               width="642" height="614" />
+          <div class="author-meta">
+            <p class="author-name">Manuel Pinar</p>
+            <p class="author-role">Creator of Check Your Backup · Professional photographer</p>
+          </div>
+        </div>
+
+        <p>
+          For many years I have worked with large photographic archives, ranging from
+          4×5 large-format film transparencies to modern high-resolution digital
+          photography. Throughout my career, I have managed hundreds of thousands of
+          image files across multiple storage systems and backup devices.
+        </p>
+        <p>
+          Like many professionals, I followed the well-known <strong>3-2-1 backup
+          strategy</strong>. I believed my data was safe because I always maintained
+          multiple backups of my projects.
+        </p>
+
+        <p class="story-highlight">Then one day I needed to recover an old file.</p>
+
+        <p>
+          To my surprise, the file was corrupted. It could not be opened, repaired,
+          or recovered. At first, I was not worried. I assumed I could simply restore
+          it from one of my backups.
+        </p>
+        <p>Unfortunately, I discovered something much worse.</p>
+        <p>
+          The corruption had silently propagated from backup to backup over the years.
+          Every backup contained the same damaged file. The original problem had been
+          copied repeatedly until every available copy was unusable.
+        </p>
+        <p>
+          The file still looked perfectly normal. It had the correct name, the expected
+          file size, and occupied hundreds of megabytes of storage. Some damaged files
+          were over 1 GB in size. Yet when opened, they contained no usable data at all.
+        </p>
+
+        <figure class="blog-figure">
+          <img src="../assets/img/blog/verify-photos-before-disaster.png" width="820" height="461"
+               alt="Verify photo archives before corrupted files spread across every backup copy."
+               loading="lazy" />
+          <figcaption>A backup of a corrupted file is still a corrupted file. Verify before you trust your archive.</figcaption>
+        </figure>
+
+        <blockquote class="story-quote">
+          Most backup systems verify that files <em>exist</em> and can be copied. They
+          generally do not open every file and verify that its contents are actually
+          valid and readable. A backup can successfully complete while still containing
+          corrupted, empty, damaged, or unreadable files.
+        </blockquote>
+
+        <h2>Why I Built Check Your Backup</h2>
+        <p>
+          That realization led me to create
+          <a href="../index.html">Check Your Backup</a>, a desktop tool built specifically
+          for photo and RAW archive verification. Instead of simply checking whether files
+          exist, it automatically opens and validates files whenever possible, helping identify
+          corrupted files before they become permanent data loss.
+        </p>
+        <p>
+          The software scans JPG, TIFF, PNG, RAW and other supported formats
+          <strong>read-only</strong>. Nothing is modified. Nothing is uploaded. You get a
+          clear report of which files are healthy and which ones need attention before
+          you archive them again.
+        </p>
+
+        <div class="blog-cta">
+          <h2 class="blog-cta-title">Download Check Your Backup</h2>
+          <p class="blog-cta-text">Verify your photo archive read-only before corruption spreads across every backup.</p>
+          <a class="btn btn-primary" href="../index.html#download">Download Free</a>
+        </div>
+
+        <p class="story-highlight">My recommendation is simple:</p>
+        <ul class="story-takeaways">
+          <li>Do not assume your backups are healthy.</li>
+          <li>Verify them regularly.</li>
+          <li>
+            You may discover damaged files that have been silently travelling through
+            your backup chain for years without anyone noticing.
+          </li>
+        </ul>
+
+        <p>
+          If you manage a photo library, whether you shoot film, digital, RAW or
+          high-resolution scans, take the time to open and validate your files.
+          The backup you trust today may already contain damage you cannot see from
+          the outside.
+        </p>
+
+        <p>
+          For a practical workflow, see
+          <a href="how-to-detect-corrupted-photos-before-backup.html">How to Detect Corrupted Photos Before Backup</a>.
+        </p>
+
+        <aside class="author-note">
+          <p>
+            <strong>About the author.</strong> Manuel Pinar is a professional photographer
+            who built Check Your Backup after discovering silent corruption in his own
+            archives. His photography work is unrelated to this software; it simply
+            explains why archive integrity became a personal priority.
+            <a href="https://manuelpinar.com/" target="_blank" rel="noopener noreferrer">Photography portfolio</a>
+          </p>
+        </aside>
+
+        <aside class="blog-related">
+          <h2 class="blog-related-title">Related articles</h2>
+          <ul class="blog-related-list">
+            <li><a href="how-to-detect-corrupted-photos-before-backup.html">How to Detect Corrupted Photos Before Backup</a></li>
+            <li><a href="why-nas-backups-dont-detect-corrupted-photos.html">Why NAS Backups Don't Detect Corrupted Photos</a></li>
+            <li><a href="what-is-bit-rot.html">What Is Bit Rot? Understanding Silent Data Corruption</a></li>
+          </ul>
+        </aside>
+
+        <div class="blog-cta">
+          <h2 class="blog-cta-title">Download Check Your Backup</h2>
+          <p class="blog-cta-text">Verify your photos before you trust your backup.</p>
+          <a class="btn btn-primary" href="../index.html#download">Download Free</a>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+          <a class="btn btn-primary" href="../index.html#download">Download Check Your Backup</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Site links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../docs/user-guide.html">User guide</a>
+        <a href="../docs/about.html">About</a>
+        <a href="../sitemap.php">Sitemap</a>
+      </nav>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

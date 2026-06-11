@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Detect Corrupted Photos Before Backup — Check Your Backup Blog</title>
+  <meta name="description" content="Learn how to detect corrupted JPG, TIFF, PNG and RAW photos before backing up to NAS, cloud or external drives. Step-by-step photo integrity verification for photographers and archives." />
+  <meta name="keywords" content="detect corrupted photos, verify photos before backup, photo integrity check, corrupted JPG detection, RAW file verification, photo archive verification, backup integrity" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://checkyourbackup.com/blog/how-to-detect-corrupted-photos-before-backup.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Check Your Backup" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://checkyourbackup.com/blog/how-to-detect-corrupted-photos-before-backup.html" />
+  <meta property="og:title" content="How to Detect Corrupted Photos Before Backup" />
+  <meta property="og:description" content="Learn how to detect corrupted JPG, TIFF, PNG and RAW photos before backing up to NAS, cloud or external drives. Step-by-step photo integrity verification." />
+  <meta property="og:image" content="https://checkyourbackup.com/assets/img/blog/detect-corrupted-photos-before-backup.png" />
+  <meta property="og:image:alt" content="How to detect corrupted photos before backup with Check Your Backup integrity analysis." />
+  <meta property="article:published_time" content="2026-06-10" />
+  <meta property="article:author" content="Manuel Pinar" />
+  <meta property="article:section" content="Photo Verification" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Detect Corrupted Photos Before Backup" />
+  <meta name="twitter:description" content="Learn how to detect corrupted JPG, TIFF, PNG and RAW photos before backing up to NAS, cloud or external drives." />
+  <meta name="twitter:image" content="https://checkyourbackup.com/assets/img/blog/detect-corrupted-photos-before-backup.png" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Detect Corrupted Photos Before Backup",
+    "description": "Learn how to detect corrupted JPG, TIFF, PNG and RAW photos before backing up to NAS, cloud or external drives. Step-by-step photo integrity verification for photographers and archives.",
+    "url": "https://checkyourbackup.com/blog/how-to-detect-corrupted-photos-before-backup.html",
+    "datePublished": "2026-06-10",
+    "dateModified": "2026-06-10",
+    "inLanguage": "en",
+    "articleSection": "Photo Verification",
+    "author": {
+      "@type": "Person",
+      "name": "Manuel Pinar"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Check Your Backup",
+      "url": "https://checkyourbackup.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkyourbackup.com/assets/img/logo.png"
+      }
+    },
+    "image": "https://checkyourbackup.com/assets/img/blog/detect-corrupted-photos-before-backup.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://checkyourbackup.com/blog/how-to-detect-corrupted-photos-before-backup.html"
+    },
+    "keywords": [
+      "detect corrupted photos",
+      "verify photos before backup",
+      "photo integrity check",
+      "corrupted JPG detection",
+      "RAW file verification",
+      "photo archive verification",
+      "backup integrity"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkyourbackup.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://checkyourbackup.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Detect Corrupted Photos Before Backup",
+        "item": "https://checkyourbackup.com/blog/how-to-detect-corrupted-photos-before-backup.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="doc-topbar">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Check Your Backup logo" class="brand-logo" />
+        <span class="brand-name">Check Your Backup</span>
+      </a>
+      <a class="doc-back" href="index.html">← Back to Blog</a>
+    </div>
+  </header>
+
+  <main class="doc-main">
+    <div class="doc-wrap">
+      <article class="doc-article">
+
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="index.html">Blog</a> / <span aria-current="page">Detect Corrupted Photos Before Backup</span>
+        </nav>
+        <span class="doc-eyebrow">Blog · Photo Verification</span>
+        <h1>How to Detect Corrupted Photos Before Backup</h1>
+        <p class="doc-meta">Published June 10, 2026 · By Manuel Pinar · Photo verification · Backup workflow</p>
+
+        <p>
+          Most backup workflows copy files exactly as they are. If a photo is already corrupted,
+          damaged or unreadable, the backup will copy that problem too, often without any warning.
+        </p>
+        <p>
+          The safest approach is to <strong>verify your photos before you back them up</strong>.
+          This guide explains how to detect corrupted image files in JPG, TIFF, PNG and RAW
+          formats before they spread across your NAS, external drives or cloud storage.
+        </p>
+
+        <figure class="blog-figure">
+          <img src="../assets/img/blog/detect-corrupted-photos-before-backup.png" width="820" height="461"
+               alt="Check Your Backup showing how to detect corrupted photos before backup with integrity analysis of JPG, RAW and other image formats."
+               loading="lazy" />
+          <figcaption>Verify image files read-only before archiving them to NAS, cloud or disk backup.</figcaption>
+        </figure>
+
+        <h2>Why Verify Photos Before Backup?</h2>
+        <p>
+          Backup software typically confirms that files exist and can be transferred. It does not
+          usually open each image to check whether the contents are valid.
+        </p>
+        <p>
+          A corrupted photo may still look normal from the outside:
+        </p>
+        <ul>
+          <li>Correct filename and extension</li>
+          <li>Expected file size</li>
+          <li>Normal folder location</li>
+          <li>No error during the backup job</li>
+        </ul>
+        <p>
+          The damage only becomes visible when someone tries to open the file, sometimes years
+          later, when every backup copy contains the same problem.
+        </p>
+        <div class="doc-callout">
+          A backup of a corrupted file is still a corrupted file.
+        </div>
+        <p>
+          For more on why backups miss this, see
+          <a href="why-nas-backups-dont-detect-corrupted-photos.html">Why NAS Backups Don't Detect Corrupted Photos</a>.
+        </p>
+
+        <h2>Signs a Photo May Be Corrupted</h2>
+        <p>
+          Not every damaged file is obvious. Watch for these warning signs:
+        </p>
+        <ul>
+          <li>The file fails to open in your viewer or editor</li>
+          <li>Partial images, missing areas or unexpected colors</li>
+          <li>Decoding errors in Lightroom, Photoshop or similar tools</li>
+          <li>Files that report a large size but contain no usable image data</li>
+          <li>Sudden slowdowns or crashes when opening specific folders</li>
+        </ul>
+        <p>
+          Silent corruption (sometimes called
+          <a href="what-is-bit-rot.html">bit rot</a>) can develop over time without any visible
+          change until you try to open the file.
+        </p>
+
+        <h2>Manual Checks vs Automated Verification</h2>
+        <p>
+          You can spot-check photos manually by opening them one by one. That works for small
+          folders, but it does not scale for large archives with thousands of RAW files.
+        </p>
+        <p>
+          Automated integrity verification opens each supported file read-only and confirms
+          whether the image data can actually be decoded. This approach is faster, repeatable
+          and suitable for entire photo libraries.
+        </p>
+
+        <h2>Step-by-Step: Verify Before You Back Up</h2>
+        <p>Follow this workflow before sending files to NAS, cloud or external storage:</p>
+        <ol>
+          <li><strong>Select the source folder</strong>: the working copy you plan to archive, not an old backup.</li>
+          <li><strong>Run an integrity scan</strong>: open and validate every supported image file read-only.</li>
+          <li><strong>Review the results</strong>: identify corrupted, suspicious or unreadable files.</li>
+          <li><strong>Recover healthy copies</strong>: if an older backup or memory card still has a good version, restore it first.</li>
+          <li><strong>Back up only after verification</strong>: archive once you know the files are readable.</li>
+          <li><strong>Repeat periodically</strong>: schedule checks on long-term archives, not just new imports.</li>
+        </ol>
+        <p>
+          This order matters. Verifying after backup tells you what you already copied, including
+          any corruption. Verifying before backup gives you a chance to fix problems first.
+        </p>
+
+        <h2>Formats You Should Verify</h2>
+        <p>
+          Any archive that includes photographer workflows should check at least:
+        </p>
+        <ul>
+          <li>JPG / JPEG</li>
+          <li>TIFF / TIF</li>
+          <li>PNG</li>
+          <li>NEF (Nikon RAW)</li>
+          <li>CR2 (Canon RAW)</li>
+          <li>ARW (Sony RAW)</li>
+          <li>DNG (Adobe Digital Negative)</li>
+        </ul>
+        <p>
+          Each format should be opened and decoded, not just checked by filename or file size.
+        </p>
+
+        <h2>What to Do When You Find a Corrupted File</h2>
+        <p>If a scan flags a damaged image, act before it enters your backup chain:</p>
+        <ul>
+          <li>Search older drives, memory cards or previous project folders for an intact copy</li>
+          <li>Do not overwrite the damaged file until you confirm a healthy replacement</li>
+          <li>Remove corrupted files from the set you plan to archive</li>
+          <li>Document findings in a report for your own records or client deliverables</li>
+          <li>Re-scan after recovery to confirm the replacement is healthy</li>
+        </ul>
+        <p>
+          If every copy is damaged, recovery may no longer be possible. That is why early
+          detection before backup is so important.
+        </p>
+
+        <h2>How Check Your Backup Helps</h2>
+        <p>
+          <a href="../index.html">Check Your Backup</a> was built for exactly this workflow. The software:
+        </p>
+        <ul>
+          <li>Scans entire folders recursively</li>
+          <li>Opens supported image files read-only</li>
+          <li>Flags corrupted, suspicious and unreadable files</li>
+          <li>Generates PDF and CSV integrity reports</li>
+          <li>Never modifies or uploads your files</li>
+        </ul>
+        <p>
+          All analysis runs locally on your Windows or macOS computer. Your photos stay on your
+          machine throughout the entire process.
+        </p>
+
+        <h2>Best Practices for Photographers</h2>
+        <ul>
+          <li>Verify new imports before they join your main archive</li>
+          <li>Check archives before major NAS or cloud migrations</li>
+          <li>Combine the 3-2-1 backup strategy with periodic integrity checks</li>
+          <li>Keep a report after each scan for long-term documentation</li>
+          <li>Do not assume a successful backup job means every file is healthy</li>
+        </ul>
+        <p>
+          Read the full story behind this tool in
+          <a href="how-i-discovered-corrupted-files-in-my-photo-archive.html">How I Discovered Corrupted Files in My Photo Archive</a>.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Detecting corrupted photos before backup is one of the most effective ways to protect
+          a photo archive. Backups protect against loss; integrity verification protects against
+          silent corruption.
+        </p>
+        <p>
+          Open your files. Verify them read-only. Back up only what you know is still readable.
+          Your future self, and every photo you cannot reshoot, will thank you.
+        </p>
+
+        <aside class="blog-related">
+          <h2 class="blog-related-title">Related articles</h2>
+          <ul class="blog-related-list">
+            <li><a href="how-to-verify-raw-files.html">How to Verify RAW Files</a></li>
+            <li><a href="why-nas-backups-dont-detect-corrupted-photos.html">Why NAS Backups Don't Detect Corrupted Photos</a></li>
+            <li><a href="what-is-bit-rot.html">What Is Bit Rot? Understanding Silent Data Corruption</a></li>
+            <li><a href="how-i-discovered-corrupted-files-in-my-photo-archive.html">How I Discovered Corrupted Files in My Photo Archive</a></li>
+          </ul>
+        </aside>
+
+        <div class="blog-cta">
+          <h2 class="blog-cta-title">Download Check Your Backup</h2>
+          <p class="blog-cta-text">Detect corrupted photos before they spread across your backups.</p>
+          <a class="btn btn-primary" href="../index.html#download">Download Free</a>
+        </div>
+
+        <div class="doc-actions">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/img/logo.png" alt="" class="brand-logo" />
+        <span>Check Your Backup</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Site links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Blog</a>
+        <a href="../docs/user-guide.html">User guide</a>
+        <a href="../docs/about.html">About</a>
+        <a href="../sitemap.php">Sitemap</a>
+      </nav>
+      <p class="footer-meta">© <span id="year">2026</span> Check Your Backup. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
