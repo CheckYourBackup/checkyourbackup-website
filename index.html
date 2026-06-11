@@ -239,9 +239,15 @@
         <a href="#screenshots">Screenshots</a>
         <a href="#status">Status</a>
         <a href="#story">Story</a>
+        <a href="blog/index.html">Blog</a>
         <a href="#docs">Docs</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/checkyourbackup/" target="_blank" rel="noopener noreferrer" aria-label="Follow Check Your Backup on Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
         <a class="btn btn-primary btn-sm" href="#download">Download</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -750,14 +756,58 @@
     </div>
   </section>
 
+  <!-- Guides -->
+  <section class="section" id="guides">
+    <div class="container">
+      <div class="section-head">
+        <h2>Photo backup &amp; integrity guides</h2>
+        <p>Learn how to detect corrupted photos, verify NAS backups and protect long-term photo archives.</p>
+      </div>
+      <div class="grid grid-2">
+        <a class="doc-card" href="blog/how-to-detect-corrupted-photos-before-backup.html">
+          <h3>How to Detect Corrupted Photos Before Backup</h3>
+          <p>Step-by-step verification before NAS, cloud or disk backup.</p>
+          <span class="doc-link">Read article →</span>
+        </a>
+        <a class="doc-card" href="blog/how-to-verify-raw-files.html">
+          <h3>How to Verify RAW Files</h3>
+          <p>Verify NEF, CR2, ARW and DNG files before archiving your photography.</p>
+          <span class="doc-link">Read article →</span>
+        </a>
+        <a class="doc-card" href="blog/what-is-bit-rot.html">
+          <h3>What Is Bit Rot?</h3>
+          <p>Understanding silent data corruption in photos and archives.</p>
+          <span class="doc-link">Read article →</span>
+        </a>
+        <a class="doc-card" href="blog/why-nas-backups-dont-detect-corrupted-photos.html">
+          <h3>Why NAS Backups Don't Detect Corrupted Photos</h3>
+          <p>Why a successful backup job does not guarantee healthy image files.</p>
+          <span class="doc-link">Read article →</span>
+        </a>
+        <a class="doc-card" href="blog/how-i-discovered-corrupted-files-in-my-photo-archive.html">
+          <h3>How I Discovered Corrupted Files in My Photo Archive</h3>
+          <p>The personal story behind Check Your Backup.</p>
+          <span class="doc-link">Read article →</span>
+        </a>
+      </div>
+      <p class="section-footnote"><a href="blog/index.html">View all blog articles →</a></p>
+    </div>
+  </section>
+
   <!-- Documentation -->
-  <section class="section" id="docs">
+  <section class="section section-alt" id="docs">
     <div class="container">
       <div class="section-head">
         <h2>Documentation</h2>
-        <p>Guides, project background and version history.</p>
+        <p>Guides, blog articles, project background and version history.</p>
       </div>
       <div class="grid grid-3">
+        <a class="doc-card" href="blog/index.html">
+          <div class="card-icon">📝</div>
+          <h3>Blog</h3>
+          <p>Backup integrity, corrupted files, NAS verification and photo archive protection.</p>
+          <span class="doc-link">Read the blog →</span>
+        </a>
         <a class="doc-card" href="docs/user-guide.html">
           <div class="card-icon">📘</div>
           <h3>User guide</h3>
@@ -775,6 +825,27 @@
           <h3>Version history</h3>
           <p>Release notes and changes for every version of the app.</p>
           <span class="doc-link">View changelog →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Follow the Project -->
+  <section class="section" id="follow">
+    <div class="container">
+      <div class="support-card">
+        <div class="support-icon" aria-hidden="true">📷</div>
+        <h2>Follow the Project</h2>
+        <p>
+          Stay updated with software improvements, backup safety tips, file integrity checks
+          and new releases.
+        </p>
+        <p>
+          Detect corrupted photos before backup, understand bit rot and verify NAS photo archives.
+        </p>
+        <a class="btn btn-primary support-btn"
+           href="https://www.instagram.com/checkyourbackup/" target="_blank" rel="noopener noreferrer">
+          Follow on Instagram
         </a>
       </div>
     </div>
@@ -809,6 +880,7 @@
       </p>
       <p class="footer-meta">
         <a href="mailto:info@checkyourbackup.com" class="footer-link">info@checkyourbackup.com</a>
+        · <a href="sitemap.xml" class="footer-link">Sitemap</a>
       </p>
       <p class="footer-meta">© <span id="year">2026</span> Check Your Backup. All Rights Reserved.</p>
       <p class="footer-meta footer-version">v<span id="footerVersion">1.0.7</span></p>
