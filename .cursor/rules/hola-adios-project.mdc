@@ -128,6 +128,9 @@ If `instagram/captures/` exists, ensure PNGs are committed on `main`. Regenerate
 zip -r instagram/checkyourbackup-instagram-captures.zip instagram/captures -x "*.DS_Store"
 ```
 
+App screenshots for the website live in `instagram/captures/app/` — run
+`scripts/sync_app_screenshots.bat` before build.
+
 Commit ZIP when captures change. User downloads from GitHub or pulls locally.
 
 **Local paths (after `git pull` on Manuel's PC):**

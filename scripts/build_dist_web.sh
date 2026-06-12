@@ -12,6 +12,12 @@ ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 OUT="$ROOT/dist_web"
 
 echo "==> Building $OUT"
+
+if [[ -f "$ROOT/instagram/captures/app/screenshot-start.png" ]]; then
+  echo "==> Syncing app screenshots from instagram/captures/app/"
+  bash "$SCRIPT_DIR/sync_app_screenshots.sh"
+fi
+
 rm -rf "$OUT"
 mkdir -p "$OUT/downloads"
 

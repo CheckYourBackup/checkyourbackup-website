@@ -15,12 +15,12 @@ These files = real app/report captures for the website.
 
 ## How to update (Windows)
 
-1. Save your three PNG exports in this folder:
+1. Save your three PNG exports here:
 
 ```
-assets\img\app-screenshots\screenshot-start.png
-assets\img\app-screenshots\screenshot-results.png
-assets\img\app-screenshots\report-pdf.png
+instagram\captures\app\screenshot-start.png
+instagram\captures\app\screenshot-results.png
+instagram\captures\app\report-pdf.png
 ```
 
 2. Sync into `assets\img\`:
