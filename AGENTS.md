@@ -84,3 +84,9 @@ etc.) if the website grows. If you do, keep the content, branding and the
 - Do **not** add the Python app's code, dependencies, or build files here.
 - Keep the site usable by simply opening `index.html` (or a static server).
 - Maintain the brand palette above for visual consistency with the app.
+
+## Cursor session workflow (hola / adios)
+
+Rules in `.cursor/rules/hola-adios-global.mdc` (all projects) and
+`hola-adios-project.mdc` (this site). Install in other repos with
+`scripts/install-cursor-session-rules.sh`. See `docs/CURSOR_SESSION_WORKFLOW.md`.

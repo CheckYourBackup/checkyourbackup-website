@@ -1,0 +1,275 @@
+---
+description: Global hola/adios session workflows — copy this file to .cursor/rules/ in every project
+alwaysApply: true
+---
+
+# Session workflows — hola / adios (all projects)
+
+Use in **every** repository. Copy to `.cursor/rules/hola-adios-global.mdc` and commit.
+
+When the user's message is **only** `hola` / starts with `hola`, or **only** `adios` / starts with
+`adios` (case-insensitive), run the matching workflow. Ignore casual Spanish in longer sentences
+unless the user clearly intends the workflow.
+
+Always read first if present: `AGENTS.md`, `README.md`, `PROJECT_STATUS.md`, `TODO.md`.
+
+Detect project type from repo contents (do not assume one stack):
+
+| Signal | Project type |
+|--------|----------------|
+| `index.html` + `assets/` | Static website |
+| `package.json` | Node / frontend |
+| `pyproject.toml` / `requirements.txt` | Python |
+| `Cargo.toml` | Rust |
+| Other | Read README for build/test commands |
+
+If the repo has `.cursor/rules/hola-adios-project.mdc`, apply it **after** this file for
+project-specific validation and build commands.
+
+---
+
+## hola — start session
+
+Execute in order. Report progress briefly.
+
+### 1. Fetch and check branch status
+
+```bash
+git fetch origin
+BRANCH="$(git branch --show-current)"
+git status -sb
+git rev-list --left-right --count "origin/${BRANCH}...HEAD" 2>/dev/null || echo "no-upstream"
+```
+
+Interpret `BEHIND<TAB>AHEAD`: behind / ahead / diverged / up to date / no upstream.
+
+### 2. Warn before continuing
+
+| Condition | Warning |
+|-----------|---------|
+| Behind remote | Branch is N commit(s) behind `origin/<branch>`. Will pull. |
+| Ahead of remote | N unpushed commit(s). |
+| Diverged | Behind N and ahead M — pull may merge. |
+| Uncommitted changes | Pull may fail; list modified files. |
+| No upstream | Set upstream or push with `-u`. |
+
+**Stop** if merge conflicts exist (step 4) — do not pull or start dev tools.
+
+### 3. Pull latest
+
+```bash
+git pull origin "$(git branch --show-current)"
+```
+
+Stop on failure until the user resolves (stash, commit, merge).
+
+### 4. Check merge conflicts
+
+```bash
+git diff --name-only --diff-filter=U
+git ls-files -u
+```
+
+If conflicted: list files, pause hola until resolved.
+
+### 5. Pending branches audit
+
+List remote branches not merged into current branch that may hold missing work:
+
+```bash
+git branch -r --no-merged HEAD | grep -v HEAD || true
+```
+
+For each branch, briefly note whether it contains assets or features the user might expect on
+`main` (e.g. `instagram/`, migrations, config). **Warn** if important folders exist only on
+unmerged branches.
+
+### 6. Read status files
+
+Read `PROJECT_STATUS.md` and `TODO.md`. Create from templates if missing (see repo conventions).
+
+### 7. Summarize project status
+
+Include: sync state, warnings, branch, clean/dirty tree, version, last session, open TODOs,
+unmerged branches of note, blockers.
+
+### 8. Prepare workspace
+
+Run the dev server / environment defined in the project README or `hola-adios-project.mdc`.
+Verify with HTTP or health check when applicable.
+
+### 9. Local machine reminder (mandatory)
+
+The agent runs in **cloud or IDE** — the user's PC is a **separate copy**. Always end hola with:
+
+> **En tu PC:** abre la carpeta del proyecto y ejecuta `git pull origin <branch>`.
+> Los cambios solo existen en GitHub hasta que hagas pull.
+
+---
+
+## adios — end session
+
+Execute **all** steps through 8. Commit and push automatically — **no confirmation prompt**.
+Fix failures before committing. Do not commit a broken build.
+
+**Goal:** leave GitHub complete, documented, and tell the user exactly how to sync their PC and
+what still requires manual action (deploy, FTP, app store, etc.).
+
+### 1. Pending branches — merge or port missing work
+
+Before validation, check for work trapped on feature branches:
+
+```bash
+git fetch origin
+git branch -r --no-merged "$(git branch --show-current)" | grep -v HEAD || true
+```
+
+For each unmerged branch that contains files referenced this session or expected asset folders
+(e.g. `instagram/`, `docs/`, migrations):
+
+- **Prefer:** merge or cherry-pick into current branch if safe and scope matches the session.
+- **If unsafe:** warn explicitly — list branch name and missing paths; do not pretend adios
+  updated everything.
+
+Do **not** leave known asset folders only on side branches when the user expects them on `main`.
+
+### 2. Validation / tests
+
+Run checks appropriate to the project (see project rule or README):
+
+- Static site: required files, link checks, `node --check` on JS if present.
+- Node: `npm test` / `npm run lint` if defined in `package.json`.
+- Python: `pytest` / `ruff check` if configured.
+- Always: run whatever the project's CI would run, or the closest local equivalent.
+
+Report pass/fail per check. Fix failures before continuing.
+
+### 3. Generate build / release artifact
+
+Run the project build script if one exists:
+
+| Project | Typical command |
+|---------|-----------------|
+| This website | `bash scripts/build_dist_web.sh` |
+| Node | `npm run build` |
+| Python package | `python -m build` or project script |
+
+Note output path, file count, and size. Record MD5/checksum for primary deliverable when useful.
+
+**Gitignored build output** (e.g. `dist_web/`, `dist/`) is built locally but **not committed**
+unless the project explicitly tracks it.
+
+### 4. Asset packs and distributables
+
+If the project maintains offline assets users need on disk (e.g. `instagram/captures/`):
+
+- Verify captures exist and are tracked in git on `main`.
+- If a ZIP is used for easy download, regenerate when captures change:
+
+```bash
+# Example (adjust paths per project)
+zip -r instagram/checkyourbackup-instagram-captures.zip instagram/captures
+```
+
+Commit new/changed assets and ZIPs — users pull them; the agent cannot write to their hard drive.
+
+### 5. Update PROJECT_STATUS.md
+
+Update (never skip) with:
+
+- Date (ISO), branch, version
+- Session work summary
+- Validation results
+- Build artifact path, size, checksum
+- Unmerged branches resolved or still pending
+- Deploy / release status (pending vs done)
+- **Local sync reminder** (see step 8)
+
+Update `TODO.md`: mark done items, add follow-ups.
+
+### 6. Show summary of modified files
+
+```bash
+git status
+git diff --stat
+```
+
+List all added/modified/deleted files (excluding gitignored build dirs unless relevant).
+
+### 7. Commit and push
+
+When there are changes:
+
+```bash
+git add -A
+git commit -m "<clear imperative message summarizing session>"
+git push -u origin "$(git branch --show-current)"
+```
+
+If nothing to commit, push any unpushed commits. Retry push on network errors (4 attempts,
+exponential backoff).
+
+### 8. Final report (mandatory)
+
+Always include this block:
+
+#### GitHub (done by adios)
+
+| Item | Value |
+|------|-------|
+| Branch | |
+| Commit | |
+| Push | success / failed |
+| Validation | pass / fail |
+| Build | path, files, size |
+
+#### Your PC — you must do this
+
+> **adios actualiza GitHub, no tu disco local.**
+> En la carpeta del proyecto en tu PC:
+> ```cmd
+> git checkout main
+> git pull origin main
+> ```
+> Luego verifica las rutas indicadas abajo.
+
+| Asset | Path in repo (after pull) |
+|-------|---------------------------|
+| (project-specific) | e.g. `instagram\captures\` |
+
+#### Manual actions (not automated by adios)
+
+- [ ] `git pull` on local PC
+- [ ] Deploy / FTP / hosting upload (if applicable)
+- [ ] Purge CDN cache (if applicable)
+- [ ] App store / release publish (if applicable)
+
+List only what applies to this project.
+
+---
+
+## Install in other projects
+
+Copy this file to each repo:
+
+```bash
+mkdir -p .cursor/rules
+cp /path/to/checkyourbackup-website/.cursor/rules/hola-adios-global.mdc .cursor/rules/
+# Optional project-specific overlay:
+cp /path/to/checkyourbackup-website/.cursor/rules/hola-adios-project.mdc .cursor/rules/
+git add .cursor/rules/ && git commit -m "Add hola/adios session workflow rules"
+```
+
+Create `PROJECT_STATUS.md` and `TODO.md` in each project on first **adios**.
+
+---
+
+## Status file conventions
+
+### PROJECT_STATUS.md
+
+Sections: **Current state**, **Last session**, **Build**, **Deploy**, **Local sync**, **Notes**.
+
+### TODO.md
+
+`- [ ]` open, `- [x]` done with date in **Done** section.

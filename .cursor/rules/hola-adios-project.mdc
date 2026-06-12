@@ -1,0 +1,141 @@
+---
+description: Check Your Backup website — project-specific hola/adios overrides
+alwaysApply: true
+---
+
+# Session workflow — Check Your Backup website
+
+Extends `hola-adios-global.mdc` for this static site. Read `AGENTS.md` for boundaries.
+
+---
+
+## Project profile
+
+- **Type:** Static HTML/CSS/JS marketing site
+- **Version source:** `downloads/releases.js` → `window.CYB_RELEASES.version`
+- **Build output:** `dist_web/` (gitignored — FTP upload only)
+- **Deploy target:** Freehostia `public_html/` + Cloudflare cache purge
+- **Production:** https://checkyourbackup.com/
+
+---
+
+## hola — project extras
+
+After global hola steps, verify paths exist:
+
+`index.html`, `robots.txt`, `sitemap.xml`, `.htaccess`, `assets/`, `blog/`, `docs/`,
+`downloads/releases.js`, `scripts/build_dist_web.sh`, `scripts/build_dist_web.bat`
+
+Dev server:
+
+```bash
+python3 -m http.server 5173
+```
+
+Verify: `curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/` → `200`
+
+Warn if `instagram/captures/` is missing PNGs on `main` (check unmerged branches).
+
+---
+
+## adios — project validation
+
+```bash
+# Required source files
+test -f index.html && test -f robots.txt && test -f sitemap.xml && test -f .htaccess
+test -d assets && test -d blog && test -d docs
+test -f downloads/releases.js
+
+# Homepage marketing sections
+grep -q 'blog/index.html' index.html
+grep -q 'instagram.com/checkyourbackup' index.html
+grep -q 'id="guides"' index.html
+grep -q 'Follow the Project' index.html
+grep -q 'Sitemap' index.html
+
+# robots.txt → sitemap.xml only
+grep -q 'sitemap.xml' robots.txt
+! grep -q 'sitemap.php' robots.txt
+
+# JS syntax
+node --check assets/js/main.js
+node --check downloads/releases.js
+
+# HTTP
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/downloads/releases.js
+```
+
+---
+
+## adios — project build
+
+```bash
+bash scripts/build_dist_web.sh
+```
+
+Verify:
+
+- 28 files (approximate), ~1.2 MB
+- `md5sum index.html dist_web/index.html` — must match
+
+---
+
+## adios — Instagram asset pack
+
+If `instagram/captures/` exists, ensure PNGs are committed on `main`. Regenerate ZIP:
+
+```bash
+zip -r instagram/checkyourbackup-instagram-captures.zip instagram/captures -x "*.DS_Store"
+```
+
+Commit ZIP when captures change. User downloads from GitHub or pulls locally.
+
+**Local paths after `git pull` on Windows:**
+
+```
+<TU_PROYECTO>\instagram\captures\feed-1080x1350\
+<TU_PROYECTO>\instagram\checkyourbackup-instagram-captures.zip
+```
+
+GitHub direct ZIP:
+https://github.com/CheckYourBackup/checkyourbackup-website/blob/main/instagram/checkyourbackup-instagram-captures.zip
+
+Regenerate captures (optional):
+
+```bash
+python3 -m http.server 5173
+python3 scripts/capture_instagram_screenshots.py
+```
+
+Requires: `python3 -m playwright install chromium`
+
+---
+
+## adios — pending branches to watch
+
+Before closing session, ensure these are not left only on feature branches:
+
+- `instagram/` and `scripts/capture_instagram_screenshots.py`
+- `blog/` and `assets/img/blog/`
+- `.cursor/rules/hola-adios-*.mdc`
+
+Merge or cherry-pick to `main` when the user expects them locally.
+
+---
+
+## adios — manual actions checklist
+
+Include in final report:
+
+- [ ] **PC local:** `git pull origin main`
+- [ ] **Instagram PNGs:** `instagram\captures\` or unzip `instagram\checkyourbackup-instagram-captures.zip`
+- [ ] **Deploy web:** upload contents of `dist_web\` to Freehostia `public_html\`
+- [ ] **Cloudflare:** purge cache after deploy
+- [ ] **Search Console:** sitemap at `https://checkyourbackup.com/sitemap.xml`
+
+`dist_web/` is **never** committed — must be built on PC after pull if deploying:
+
+```cmd
+scripts\build_dist_web.bat
+```
