@@ -49,6 +49,34 @@ Requires Playwright Chromium (one-time): `python3 -m playwright install chromium
 - Logo: `assets/img/logo.png`
 - Site: https://checkyourbackup.com/
 
+## Get files on your PC (Windows)
+
+These files live in the **Git repo**, not on the website server. After cloning or pulling:
+
+```
+<TU_PROYECTO>\instagram\captures\
+```
+
+Example if the repo is `Pagina_WEB` on your Desktop:
+
+```
+C:\Users\TU_USUARIO\Desktop\Pagina_WEB\instagram\captures\feed-1080x1350\
+```
+
+**Option A — git pull** (inside your project folder):
+
+```cmd
+git checkout main
+git pull origin main
+dir instagram\captures\feed-1080x1350
+```
+
+**Option B — download one ZIP from GitHub:**
+
+1. Open: https://github.com/CheckYourBackup/checkyourbackup-website/blob/main/instagram/checkyourbackup-instagram-captures.zip
+2. Click **Download** (raw file)
+3. Unzip anywhere (e.g. `Desktop\instagram-captures\`)
+
 ## Notes
 
 - Add reel scripts and caption drafts under `docs/`.
