@@ -100,7 +100,11 @@ Verify with HTTP or health check when applicable.
 
 ### 9. Local machine reminder (mandatory)
 
-The agent runs in **cloud or IDE** — the user's PC is a **separate copy**. Always end hola with:
+The agent runs in **cloud or IDE** — the user's PC is a **separate copy**. Always end hola with
+the local PC block.
+
+If `.cursor/rules/hola-adios-project.mdc` defines **Local PC path**, copy that block verbatim
+(exact Windows path and CMD commands). Otherwise use:
 
 > **En tu PC:** abre la carpeta del proyecto y ejecuta `git pull origin <branch>`.
 > Los cambios solo existen en GitHub hasta que hagas pull.
@@ -226,16 +230,21 @@ Always include this block:
 #### Your PC — you must do this
 
 > **adios actualiza GitHub, no tu disco local.**
+
+If `hola-adios-project.mdc` has a **Local PC path** section, paste that entire block here
+(exact path `C:\Users\...`, CMD commands, Instagram folders). Do not replace with generic text.
+
+Otherwise:
+
 > En la carpeta del proyecto en tu PC:
 > ```cmd
 > git checkout main
 > git pull origin main
 > ```
-> Luego verifica las rutas indicadas abajo.
 
 | Asset | Path in repo (after pull) |
 |-------|---------------------------|
-| (project-specific) | e.g. `instagram\captures\` |
+| (project-specific) | see hola-adios-project.mdc |
 
 #### Manual actions (not automated by adios)
 

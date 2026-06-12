@@ -66,18 +66,20 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 
 ## Local sync (your PC)
 
-**adios updates GitHub only.** After every adios, on your PC:
+**adios updates GitHub only.** After every hola and adios, on your PC:
 
 ```cmd
+cd C:\Users\mpinar\checkyourbackup-website
 git checkout main
 git pull origin main
 ```
 
-| Asset | Path after pull |
+| Asset | Path |
 |---|---|
-| Instagram PNGs | `<proyecto>\instagram\captures\feed-1080x1350\` |
-| Instagram ZIP | `<proyecto>\instagram\checkyourbackup-instagram-captures.zip` |
-| Deploy package | build with `scripts\build_dist_web.bat` → `dist_web\` |
+| Project root | `C:\Users\mpinar\checkyourbackup-website\` |
+| Instagram PNGs | `C:\Users\mpinar\checkyourbackup-website\instagram\captures\feed-1080x1350\` |
+| Instagram ZIP | `C:\Users\mpinar\checkyourbackup-website\instagram\checkyourbackup-instagram-captures.zip` |
+| Deploy package | `scripts\build_dist_web.bat` → `dist_web\` → FTP |
 
 GitHub ZIP direct: https://github.com/CheckYourBackup/checkyourbackup-website/blob/main/instagram/checkyourbackup-instagram-captures.zip
 
