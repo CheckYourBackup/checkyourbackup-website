@@ -25,6 +25,11 @@ instagram/
 
 Files are captured at **2× device scale** (sharp on retina / mobile).
 
+**Important:** These are **Instagram marketing slides**, not the app screenshots shown on
+the website. The live site uses `assets/img/screenshot-start.png` and
+`assets/img/screenshot-results.png`. See `assets/img/app-screenshots/README.md`.
+After updating those app PNGs, re-run this script to refresh Instagram captures too.
+
 ## Regenerate captures
 
 Start the dev server, then:

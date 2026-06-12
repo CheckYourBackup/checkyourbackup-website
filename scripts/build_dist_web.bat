@@ -11,6 +11,11 @@ set "OUT=%ROOT%\dist_web"
 
 echo ==^> Building %OUT%
 
+if exist "%ROOT%\instagram\captures\app\screenshot-start.png" (
+  echo ==^> Syncing app screenshots from instagram\captures\app\
+  call "%~dp0sync_app_screenshots.bat"
+)
+
 if exist "%OUT%" rmdir /s /q "%OUT%"
 mkdir "%OUT%\downloads"
 
