@@ -20,40 +20,102 @@ For both workflows, read `AGENTS.md` and `README.md` when you need project conte
 
 Execute in order. Report progress briefly as you go.
 
-### 1. Pull latest changes from GitHub
+### 1. Fetch and check branch status
 
 ```bash
 git fetch origin
+BRANCH="$(git branch --show-current)"
+git status -sb
+git rev-list --left-right --count "origin/${BRANCH}...HEAD" 2>/dev/null || echo "no-upstream"
+```
+
+Interpret the `rev-list` output as `BEHIND<TAB>AHEAD`:
+
+- **Behind** (`BEHIND > 0`): local branch is missing commits from `origin/${BRANCH}`.
+- **Ahead** (`AHEAD > 0`): local branch has unpushed commits.
+- **Diverged** (both `> 0`): local and remote have different commits — pull may require a merge.
+- **Up to date** (both `0`): local matches remote (after fetch).
+- **No upstream**: branch has no remote tracking branch — warn the user.
+
+Also note uncommitted changes from `git status -sb` (`M`, `??`, etc.).
+
+### 2. Warn before continuing
+
+Before pulling or proceeding with the rest of hola, **warn the user explicitly** if any of these
+apply:
+
+| Condition | Warning |
+|-----------|---------|
+| Behind remote | `Your branch is N commit(s) behind origin/<branch>. A pull will be attempted.` |
+| Ahead of remote | `Your branch has N unpushed commit(s).` |
+| Diverged | `Your branch and origin/<branch> have diverged (behind N, ahead M). Pull may create a merge.` |
+| Uncommitted changes | `You have uncommitted changes. Pull may fail or require stash/merge.` |
+| No upstream | `Branch has no upstream on origin. Push with -u or set upstream first.` |
+
+Present the warnings in the reply. If the branch is behind or diverged, tell the user you will
+attempt `git pull` next. If there are uncommitted changes plus incoming remote commits, highlight
+the risk before pulling.
+
+**Stop the hola workflow** (do not pull, do not start the dev server) if:
+
+- A previous pull left **merge conflicts** (see step 3).
+- The user must resolve conflicts or stash changes first.
+
+Otherwise continue after showing the warnings.
+
+### 3. Pull latest changes from GitHub
+
+```bash
 git pull origin "$(git branch --show-current)"
 ```
 
-If on `main`, also run `git pull origin main`. If pull fails due to local changes, stash or
-resolve before continuing and tell the user what happened.
+If on `main`, use `git pull origin main`. If pull fails, report the error and **stop** — do not
+continue hola until the user resolves it (stash, commit, or merge).
 
-### 2. Update local repository
+### 4. Check for merge conflicts
+
+After pull (or if the working tree already has conflict markers), run:
+
+```bash
+git diff --name-only --diff-filter=U
+git ls-files -u
+```
+
+If either command lists files, **merge conflicts are present**. Warn the user:
+
+- List conflicted files.
+- Tell them hola is paused until conflicts are resolved (`git add` + `git commit`, or abort with
+  `git merge --abort` / `git rebase --abort`).
+- **Do not** start the dev server or summarize project status until conflicts are cleared.
+
+If no conflicts, continue.
+
+### 5. Update local repository
 
 - Ensure the working tree reflects the latest remote state.
 - If `PROJECT_STATUS.md` or `TODO.md` are missing, create them using the templates in this repo
   (see file headers) before continuing.
 
-### 3. Read status files
+### 6. Read status files
 
 Read and internalize:
 
 - `PROJECT_STATUS.md` — current version, branch, last session, build state
 - `TODO.md` — open and recently completed tasks
 
-### 4. Summarize project status
+### 7. Summarize project status
 
 Reply with a concise summary covering:
 
+- Git sync state (up to date, behind, ahead, diverged — from step 1)
+- Any warnings issued in step 2
 - Current app/site version (from `downloads/releases.js` and `PROJECT_STATUS.md`)
 - Active git branch and whether it is clean or has uncommitted changes
 - Last recorded session work (`PROJECT_STATUS.md`)
 - Top open items from `TODO.md`
-- Anything blocking development (missing secrets, failed last build, etc.)
+- Anything blocking development (missing secrets, failed last build, merge conflicts, etc.)
 
-### 5. Prepare workspace
+### 8. Prepare workspace
 
 - Confirm Python 3 is available (`python3 --version`).
 - Start the dev server if it is not already running:
