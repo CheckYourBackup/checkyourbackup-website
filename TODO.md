@@ -2,13 +2,16 @@
 
 ## Open
 
+- [ ] **PC local:** `git pull origin main` (Instagram PNGs + rules)
 - [ ] Upload `dist_web/` contents to Freehostia `public_html/`
 - [ ] Purge Cloudflare cache after deploy
-- [ ] Submit `sitemap.xml` in Google Search Console (remove old `sitemap.php` if listed)
-- [ ] Close or merge stale PRs (#1, #4, #5) after reviewing overlap with `main`
+- [ ] Close stale PRs/branches: #2 dev-env-setup, #4 session-workflow, #5 hola-adios-workflow
+- [ ] Install `hola-adios-global.mdc` in desktop app repo (`install-cursor-session-rules.bat`)
+- [ ] Submit `sitemap.xml` in Google Search Console
 
 ## Done
 
-- [x] Merge blog, images, and homepage marketing sections to `main` (2026-06-12)
-- [x] Add hola/adios Cursor rule without commit confirmation (2026-06-12)
-- [x] Audit images and navigation — local, GitHub, production aligned (2026-06-12)
+- [x] Expand adios rule: global workflow, PC sync reminder, pending branches (2026-06-12)
+- [x] Instagram captures + ZIP on `main` (2026-06-12)
+- [x] Merge blog, images, homepage marketing sections to `main` (2026-06-12)
+- [x] Add hola/adios Cursor rules without commit confirmation (2026-06-12)
