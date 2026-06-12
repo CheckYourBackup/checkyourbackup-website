@@ -8,7 +8,7 @@
 |-------|-------|
 | **Site version** | 1.0.7 (see `downloads/releases.js`) |
 | **Branch** | `cursor/hola-adios-workflow-198b` |
-| **Last updated** | 2026-06-12 (session close) |
+| **Last updated** | 2026-06-12 (adios — auto commit/push) |
 | **Dev server** | `python3 -m http.server 5173` → http://localhost:5173 |
 | **Assets / navigation** | OK (see audit below) |
 | **Instagram assets** | 14 captures in `instagram/captures/` |
@@ -22,6 +22,7 @@
 - Audited `assets/img/` and site navigation (local, GitHub `main`, production) — all OK.
 - Created `instagram/` folder with 14 Instagram-ready screenshots + capture script.
 - Documented Google Search Console links in this file.
+- Removed confirmation step from `adios` rule — commit/push now automatic.
 - Regenerated `dist_web/` deploy bundle (480 KB, 18 files) — validation pass, ready for FTP.
 
 ## Assets audit — `assets/img/`
@@ -50,7 +51,7 @@ Checked **2026-06-12** — 11/11 header anchors OK; `docs/*.html` back-links and
 
 | Artifact | Status |
 |----------|--------|
-| `dist_web/` (FTP deploy bundle) | **Built** — 480 KB, 18 files (regenerated 2026-06-12, adios) |
+| `dist_web/` (FTP deploy bundle) | **Built** — 480 KB, 18 files (regenerated 2026-06-12) |
 
 Generate with: `bash scripts/build_dist_web.sh`
 
