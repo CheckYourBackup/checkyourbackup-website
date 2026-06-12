@@ -139,11 +139,10 @@ files.
 
 ## adios — end session
 
-Execute steps 1–6 in order. **Stop after step 6** and wait for explicit user confirmation
-before step 7. Do not commit or push without approval.
+Execute all steps in order through step 6. Commit and push automatically when there are changes
+to commit — **no confirmation prompt**.
 
-Fix validation or build failures before presenting the summary. Do not propose committing a
-broken build.
+Fix validation or build failures before committing. Do not commit a broken build.
 
 ### 1. Run validation / tests
 
@@ -201,44 +200,35 @@ Present a clear summary for the user:
 - Validation summary (all checks passed or what failed)
 - Build result (`dist_web/` file count and size)
 
-If there are no changes to commit, say so and **skip steps 5–7**. Offer to push an existing
-unpushed commit only if one exists and the user asks.
+If there are no changes to commit, say so and **skip steps 5–6**. If an unpushed commit already
+exists, push it in step 6.
 
-### 5. Propose commit message
+### 5. Commit message
 
 Draft one commit message that summarizes the session work. Use a clear, complete sentence in
 imperative mood (e.g. `docs: update session status after landing page edits`).
 
-Show the proposed message to the user before asking for confirmation.
+Show the message in the final summary, then proceed immediately to step 6.
 
-### 6. Ask for confirmation
+### 6. Commit and push
 
-Explicitly ask the user to confirm before committing and pushing. Example:
-
-> Ready to commit and push? Reply **yes** to proceed with the proposed message, or suggest edits.
-
-Accept clear affirmative replies (`yes`, `confirm`, `ok`, `adelante`, etc.). If the user requests
-message changes, update the proposal and ask again. If the user declines, stop without committing.
-
-**Do not run `git commit` or `git push` until the user confirms.**
-
-### 7. Commit and push (only after confirmation)
-
-After explicit user approval:
+When there are staged or unstaged changes to commit:
 
 ```bash
 git add -A
-git commit -m "<approved message>"
+git commit -m "<message from step 5>"
 git push -u origin "$(git branch --show-current)"
 ```
 
 Retry push on transient network errors (up to 4 times with backoff).
 
-Then confirm to the user:
+Confirm to the user in the same reply:
 
+- Commit message used
 - Full commit hash (`git rev-parse HEAD`)
 - Branch name
 - Push confirmation (remote up to date)
+- Validation summary and `dist_web/` build result
 
 ---
 
