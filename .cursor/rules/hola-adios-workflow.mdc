@@ -1,0 +1,161 @@
+---
+description: Session start (hola) and session end (adios) workflows for this repository
+alwaysApply: true
+---
+
+# Session workflows — hola / adios
+
+When the user's message is **only** `hola` or starts with `hola` (case-insensitive), run the
+**hola** workflow below. Do not treat casual Spanish greetings in longer sentences as a trigger
+unless the user clearly intends the session-start workflow.
+
+When the user's message is **only** `adios` or starts with `adios` (case-insensitive), run the
+**adios** workflow below. Same caveat for casual usage.
+
+For both workflows, read `AGENTS.md` and `README.md` when you need project context.
+
+---
+
+## hola — start session
+
+Execute in order. Report progress briefly as you go.
+
+### 1. Pull latest changes from GitHub
+
+```bash
+git fetch origin
+git pull origin "$(git branch --show-current)"
+```
+
+If on `main`, also run `git pull origin main`. If pull fails due to local changes, stash or
+resolve before continuing and tell the user what happened.
+
+### 2. Update local repository
+
+- Ensure the working tree reflects the latest remote state.
+- If `PROJECT_STATUS.md` or `TODO.md` are missing, create them using the templates in this repo
+  (see file headers) before continuing.
+
+### 3. Read status files
+
+Read and internalize:
+
+- `PROJECT_STATUS.md` — current version, branch, last session, build state
+- `TODO.md` — open and recently completed tasks
+
+### 4. Summarize project status
+
+Reply with a concise summary covering:
+
+- Current app/site version (from `downloads/releases.js` and `PROJECT_STATUS.md`)
+- Active git branch and whether it is clean or has uncommitted changes
+- Last recorded session work (`PROJECT_STATUS.md`)
+- Top open items from `TODO.md`
+- Anything blocking development (missing secrets, failed last build, etc.)
+
+### 5. Prepare workspace
+
+- Confirm Python 3 is available (`python3 --version`).
+- Start the dev server if it is not already running:
+
+```bash
+python3 -m http.server 5173
+```
+
+Use a tmux session for a background server. Verify with:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/
+```
+
+Expect `200`. Tell the user the site is at http://localhost:5173.
+
+Do **not** make code changes during hola unless fixing a broken pull or creating missing status
+files.
+
+---
+
+## adios — end session
+
+Execute in order. Fix failures before committing; do not push a broken build.
+
+### 1. Run validation / tests
+
+This project has no formal test runner. Run these checks from the repo root:
+
+```bash
+node --check assets/js/main.js
+node --check downloads/releases.js
+```
+
+Start the dev server if needed, then:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/downloads/releases.js
+```
+
+Both must return `200`. If any check fails, fix the issue and re-run before proceeding.
+
+### 2. Generate release build
+
+```bash
+bash scripts/build_dist_web.sh
+```
+
+Confirm `dist_web/` exists and contains `index.html`, `assets/`, `docs/`, and
+`downloads/releases.js`. Note file count and size from the script output.
+
+### 3. Update PROJECT_STATUS.md
+
+Update (do not skip) with:
+
+- Today's date (ISO `YYYY-MM-DD`)
+- Current git branch
+- Site version from `downloads/releases.js`
+- Summary of work done this session
+- Validation results (pass/fail, commands run)
+- Release build result (`dist_web/` file count and size)
+- Any known issues or follow-ups for the next session
+
+### 4. Commit all changes
+
+```bash
+git add -A
+git status
+git commit -m "<descriptive message summarizing session work>"
+```
+
+Use a clear, complete commit message. If there is nothing to commit, say so and skip to step 5
+only if a prior commit still needs pushing.
+
+### 5. Push to GitHub
+
+```bash
+git push -u origin "$(git branch --show-current)"
+```
+
+Retry on transient network errors (up to 4 times with backoff).
+
+### 6. Confirm build and commit hash
+
+Reply with:
+
+- Full commit hash (`git rev-parse HEAD`)
+- Branch name
+- `dist_web/` build confirmation (file count, size)
+- Validation summary (all checks passed or what failed)
+- Push confirmation (remote up to date)
+
+---
+
+## Status file conventions
+
+### PROJECT_STATUS.md
+
+Keep a rolling log. Minimum sections: **Current state**, **Last session**, **Build**, **Notes**.
+
+### TODO.md
+
+Use `- [ ]` for open tasks and `- [x]` for done. Move completed items to a **Done** section with
+the date when closing a session via adios.
