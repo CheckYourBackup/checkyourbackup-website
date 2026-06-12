@@ -8,7 +8,7 @@
 |-------|-------|
 | **Site version** | 1.0.7 (see `downloads/releases.js`) |
 | **Branch** | `cursor/hola-adios-workflow-198b` |
-| **Last updated** | 2026-06-12 |
+| **Last updated** | 2026-06-12 (Google Search links added) |
 | **Dev server** | `python3 -m http.server 5173` → http://localhost:5173 |
 | **Assets / navigation** | OK (see audit below) |
 | **Instagram assets** | 14 captures in `instagram/captures/` |
@@ -63,6 +63,49 @@ Upload the **contents** of `dist_web/` to `checkyourbackup.com/public_html/`.
 | Releases syntax | `node --check downloads/releases.js` | Pass (2026-06-12) |
 | HTTP smoke | `curl` → http://localhost:5173/ | Pass — index 200, releases.js 200 |
 | Image / nav audit | Manual + browser | Pass (2026-06-12) |
+
+## Google Search — enlaces útiles
+
+### Search Console
+
+| Uso | URL |
+|-----|-----|
+| Panel principal | https://search.google.com/search-console |
+| Añadir propiedad | https://search.google.com/search-console/welcome |
+| Enviar sitemap | https://search.google.com/search-console/sitemaps |
+| Inspección de URLs | https://search.google.com/search-console/inspect |
+| Rendimiento | https://search.google.com/search-console/performance/search-analytics |
+| Cobertura / indexación | https://search.google.com/search-console/index |
+
+### Sitemap y robots
+
+| Recurso | URL |
+|---------|-----|
+| **Sitemap** (enviar en Search Console) | https://checkyourbackup.com/sitemap.xml |
+| **robots.txt** | https://checkyourbackup.com/robots.txt |
+
+### Páginas indexables (`sitemap.xml`)
+
+| Página | URL |
+|--------|-----|
+| Home | https://checkyourbackup.com/ |
+| User guide | https://checkyourbackup.com/docs/user-guide.html |
+| About | https://checkyourbackup.com/docs/about.html |
+| Changelog | https://checkyourbackup.com/docs/changelog.html |
+
+### Otras herramientas
+
+| Uso | URL |
+|-----|-----|
+| Rich Results Test | https://search.google.com/test/rich-results |
+| PageSpeed Insights | https://pagespeed.web.dev/analysis?url=https://checkyourbackup.com/ |
+| Búsqueda `site:` | https://www.google.com/search?q=site:checkyourbackup.com |
+
+### Pasos en Search Console
+
+1. Añadir propiedad `https://checkyourbackup.com` (verificación DNS o archivo HTML).
+2. En **Sitemaps**, enviar `sitemap.xml` (URL completa arriba).
+3. En **Inspección de URLs**, solicitar indexación de la home y las 3 páginas `docs/`.
 
 ## Notes
 
