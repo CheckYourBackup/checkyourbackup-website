@@ -6,12 +6,20 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SRC="$ROOT/assets/img/app-screenshots"
 DST="$ROOT/assets/img"
 
-for name in screenshot-start screenshot-results; do
+missing=0
+for name in screenshot-start screenshot-results report-pdf; do
   if [[ ! -f "$SRC/${name}.png" ]]; then
     echo "Missing: $SRC/${name}.png"
-    echo "Export from the desktop app and save there. See assets/img/app-screenshots/README.md"
-    exit 1
+    missing=1
   fi
+done
+
+if [[ "$missing" -eq 1 ]]; then
+  echo "Save PNG exports from the app. See assets/img/app-screenshots/README.md"
+  exit 1
+fi
+
+for name in screenshot-start screenshot-results report-pdf; do
   cp "$SRC/${name}.png" "$DST/${name}.png"
   echo "Updated: assets/img/${name}.png"
 done
