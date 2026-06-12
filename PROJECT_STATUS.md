@@ -11,16 +11,17 @@
 | **Last updated** | 2026-06-12 |
 | **Dev server** | `python3 -m http.server 5173` → http://localhost:5173 |
 | **Assets / navigation** | OK (see audit below) |
+| **Instagram assets** | 14 captures in `instagram/captures/` |
+| **Deploy bundle** | `dist_web/` — 480 KB, 18 files (regenerated this session) |
 
 ## Last session
 
-**2026-06-12** — Audit of image folders and site navigation across local, GitHub (`main`), and production (`checkyourbackup.com`).
+**2026-06-12** — Session close (`adios`).
 
-- Verified all 7 files in `assets/img/` exist and are referenced correctly in HTML.
-- Confirmed all 11 header anchor links on `index.html` resolve to existing section IDs.
-- Confirmed doc pages (`docs/*.html`) load with correct relative paths to assets and back-links.
-- Compared local `assets/img/` with `origin/main`: identical file list and byte sizes.
-- No broken images, broken links, or navigation issues found.
+- Added hola/adios Cursor workflow rule and `PROJECT_STATUS.md` / `TODO.md`.
+- Audited `assets/img/` and site navigation (local, GitHub `main`, production) — all OK.
+- Created `instagram/` folder with 14 Instagram-ready screenshots + capture script.
+- Regenerated `dist_web/` deploy bundle (480 KB, 18 files).
 
 ## Assets audit — `assets/img/`
 
@@ -38,65 +39,34 @@ Checked **2026-06-12** in local (`localhost:5173`), GitHub (`CheckYourBackup/che
 
 **HTML references:** 17 image references across `index.html` and `docs/*.html` — all resolve to existing files (0 missing).
 
-**Other references:** `og-image.png` and screenshots also referenced in Open Graph / Twitter meta tags and JSON-LD on `index.html`. `site.webmanifest` references `logo.png`. No image references in CSS.
-
 **Local vs GitHub:** file list and byte sizes match `origin/main` exactly.
 
 ## Navigation audit
 
-Checked **2026-06-12** via automated anchor validation and browser walkthrough on `localhost:5173`.
-
-### `index.html` — header nav
-
-| Link | Target `id` | Status |
-|------|---------------|--------|
-| Features | `#features` | OK |
-| Formats | `#formats` | OK |
-| Read-only | `#readonly` | OK |
-| How it works | `#how` | OK |
-| Screenshots | `#screenshots` | OK |
-| Status | `#status` | OK |
-| Story | `#story` | OK |
-| Docs | `#docs` | OK |
-| FAQ | `#faq` | OK |
-| Contact | `#contact` | OK |
-| Download | `#download` | OK |
-
-Browser check: each link scrolls to the correct section and updates the URL fragment.
-
-### Documentation pages (`docs/`)
-
-| Page | Local | Production | Notes |
-|------|-------|------------|-------|
-| `user-guide.html` | 200 | 200 | Logo, CSS, back-link to `../index.html#docs`, link to `#download` |
-| `about.html` | 200 | 200 | Logo, CSS, back-link to `../index.html#docs` |
-| `changelog.html` | 200 | 200 | Logo, CSS, back-link to `../index.html#docs` |
-
-Doc cards in the `#docs` section on the landing page link correctly to all three pages.
-
-### Verdict
-
-No broken images, broken internal links, or navigation issues detected in local, GitHub, or production.
+Checked **2026-06-12** — 11/11 header anchors OK; `docs/*.html` back-links and assets OK; browser walkthrough passed.
 
 ## Build
 
 | Artifact | Status |
 |----------|--------|
-| `dist_web/` (FTP deploy bundle) | Not built this session |
+| `dist_web/` (FTP deploy bundle) | **Built** — 480 KB, 18 files (2026-06-12) |
 
 Generate with: `bash scripts/build_dist_web.sh`
+
+Upload the **contents** of `dist_web/` to `checkyourbackup.com/public_html/`.
 
 ## Validation
 
 | Check | Command | Last result |
 |-------|---------|-------------|
-| JS syntax | `node --check assets/js/main.js` | Not run this session |
-| Releases syntax | `node --check downloads/releases.js` | Not run this session |
-| HTTP smoke | `curl` → http://localhost:5173/ | Pass (all pages + images 200) |
+| JS syntax | `node --check assets/js/main.js` | Pass (2026-06-12) |
+| Releases syntax | `node --check downloads/releases.js` | Pass (2026-06-12) |
+| HTTP smoke | `curl` → http://localhost:5173/ | Pass — index 200, releases.js 200 |
 | Image / nav audit | Manual + browser | Pass (2026-06-12) |
 
 ## Notes
 
 - Static site: HTML + CSS + vanilla JS. No `npm install` or build step for local dev.
+- `dist_web/` is gitignored — regenerate before each FTP upload.
+- Instagram captures: `python3 scripts/capture_instagram_screenshots.py` (requires Playwright).
 - See `AGENTS.md` for branding, boundaries, and Cloud-specific instructions.
-- Re-run asset/nav checks after adding screenshots, changing nav labels, or restructuring `docs/`.
