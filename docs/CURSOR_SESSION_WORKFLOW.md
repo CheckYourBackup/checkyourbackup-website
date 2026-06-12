@@ -51,6 +51,20 @@ git commit -m "Add hola/adios Cursor session workflow rules"
 For the desktop app or other stacks, keep `hola-adios-global.mdc` and write a new
 `hola-adios-project.mdc` with that project's test/build/deploy commands.
 
+**Template for desktop app:** copy
+`docs/templates/hola-adios-project-desktop-app.mdc` → desktop repo as
+`.cursor/rules/hola-adios-project.mdc`, then customize test/build commands.
+
+### What are these two files?
+
+| File | Analogy | Content |
+|------|---------|---------|
+| `hola-adios-global.mdc` | Same for every project | hola = pull + summarize; adios = validate + commit + push; reminds you to `git pull` on your PC |
+| `hola-adios-project.mdc` | **Per project** | How *this* repo is tested, built, and deployed |
+
+The website project rule knows about `dist_web/`, Instagram PNGs, and FTP.
+The desktop app rule should know about `pytest`, PyInstaller, `.exe`/`.zip`, and the downloads repo.
+
 ## First adios in a new project
 
 Creates (if missing):

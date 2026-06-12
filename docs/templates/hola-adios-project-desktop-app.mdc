@@ -1,0 +1,119 @@
+---
+description: Check Your Backup DESKTOP APP — project-specific hola/adios overrides
+alwaysApply: true
+---
+
+# Session workflow — Check Your Backup (desktop app)
+
+Extends `hola-adios-global.mdc`. This file is **only for the Python desktop app repo**,
+not for the marketing website.
+
+> **Install:** copy this file to the desktop app repo as `.cursor/rules/hola-adios-project.mdc`
+> together with `hola-adios-global.mdc` (from checkyourbackup-website).
+
+Read `AGENTS.md` or `README.md` in the desktop repo for exact commands.
+
+---
+
+## Project profile
+
+- **Type:** Python desktop application (Windows + macOS)
+- **Version source:** `pyproject.toml`, `version.py`, or `__init__.py` — adjust path below
+- **Build output:** `.exe` / `.app` / portable zips (paths vary — fill in after audit)
+- **Distribution:** GitHub Releases via `CheckYourBackup/downloads` repo
+- **Website sync:** update `downloads/releases.js` in **checkyourbackup-website** when publishing
+
+---
+
+## hola — project extras
+
+After global hola steps, verify the desktop repo layout (adjust paths if different):
+
+- `pyproject.toml` or `requirements.txt`
+- Main entry point (e.g. `src/`, `app/`, `checkyourbackup/`)
+- Test folder (`tests/`)
+- Build script or spec (e.g. `build.py`, `*.spec`, `scripts/build_*`)
+
+**Do not** start the full GUI during hola unless the README says so. Optional:
+
+```bash
+python3 --version
+# python3 -m pytest --collect-only   # dry run if pytest exists
+```
+
+Warn if release zips exist only on unmerged branches.
+
+---
+
+## adios — project validation
+
+Run from the **desktop app repo root**. Customize commands to match the project:
+
+```bash
+# Python syntax / imports (adjust module path)
+python3 -m compileall -q .
+
+# Tests — use what the project defines
+python3 -m pytest -q
+# OR: python3 -m unittest discover -s tests -q
+
+# Lint (if configured)
+# ruff check .
+# OR: flake8 .
+```
+
+Report pass/fail per command. Fix failures before build/commit.
+
+---
+
+## adios — project build
+
+Run the project's release build (fill in the real command after auditing the repo):
+
+```bash
+# Examples — replace with actual project script:
+# python3 scripts/build_windows.py
+# python3 scripts/build_macos.py
+# pyinstaller CheckYourBackup.spec
+```
+
+Verify:
+
+- Build artifacts exist (`.exe`, `.app`, or `.zip`)
+- File sizes are reasonable (note bytes for `releases.js` on the website)
+- Version string in artifact matches intended release
+
+**Build output** is usually gitignored — note paths in `PROJECT_STATUS.md`, do not commit
+binaries unless the repo explicitly tracks them.
+
+---
+
+## adios — release coordination (website + downloads)
+
+When closing a session that includes a **new app version**:
+
+1. Note new version number and build file sizes.
+2. Add to `TODO.md`: update website `downloads/releases.js` and upload zip to downloads repo.
+3. Remind user: website deploy is a **separate repo** (checkyourbackup-website).
+
+---
+
+## adios — manual actions checklist
+
+Include in final report:
+
+- [ ] **PC local:** `git pull origin main` (or active branch)
+- [ ] **Run app** locally to smoke-test after changes
+- [ ] **New release?** Upload zip to `CheckYourBackup/downloads` + edit website `releases.js`
+- [ ] **Code signing** (if applicable) — notarization macOS / SmartScreen Windows
+- [ ] **Website:** rebuild `dist_web` and FTP deploy if download links changed
+
+---
+
+## Customize this file
+
+When you first open the desktop app in Cursor, say:
+
+> "Audit this repo and fill in hola-adios-project.mdc with the real test and build commands."
+
+The agent should replace the placeholder commands above with the actual ones from your project.
