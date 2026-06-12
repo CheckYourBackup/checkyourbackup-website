@@ -1,0 +1,225 @@
+---
+description: Session start (hola) and session end (adios) workflows for Check Your Backup website
+alwaysApply: true
+---
+
+# Session workflow — hola / adios
+
+When the user's message is **only** or **primarily** the trigger word below, run the matching workflow before doing anything else. Treat `hola` and `adios` as case-insensitive session commands.
+
+Also read `AGENTS.md` for project boundaries (static marketing site; do not touch the desktop app).
+
+---
+
+## hola — start session
+
+Run these steps in order:
+
+### 1. Fetch and check remote sync
+
+```bash
+git fetch origin
+BRANCH="$(git branch --show-current)"
+git status -sb
+git rev-list --left-right --count "origin/$BRANCH...HEAD" 2>/dev/null || echo "no-upstream"
+```
+
+Determine sync state:
+
+- **Behind** — `origin/$BRANCH` has commits not in local HEAD
+- **Ahead** — local has unpushed commits
+- **Diverged** — both behind and ahead
+- **In sync** — same commit on local and remote
+
+If there is no upstream branch, report that and skip the behind/ahead check.
+
+### 2. Check for merge conflicts
+
+Before pulling, inspect the working tree and index:
+
+```bash
+git status --short
+git diff --name-only --diff-filter=U
+git ls-files -u
+```
+
+Flag as **conflicted** if any of these are true:
+
+- Unmerged paths (`git diff --name-only --diff-filter=U` returns files)
+- Index entries in conflict (`git ls-files -u` returns entries)
+- A rebase or merge is in progress (`.git/rebase-merge`, `.git/rebase-apply`, or `.git/MERGE_HEAD` exists)
+- `git status` reports "Unmerged paths" or "rebase in progress"
+
+### 3. Warn before continuing
+
+Present a **Sync warning** block before pulling or doing further work:
+
+| Check | Status |
+|---|---|
+| Branch | `<branch>` |
+| Behind remote | yes / no / unknown |
+| Ahead of remote | yes / no |
+| Uncommitted changes | yes / no |
+| Merge conflicts | yes / no |
+| Rebase/merge in progress | yes / no |
+
+**If conflicts exist:** stop immediately. List conflicted files and tell the user to resolve them before continuing. Do **not** pull or start new work.
+
+**If behind remote (no conflicts):** warn explicitly, e.g. "Local branch is N commits behind origin. Pulling now." Then pull.
+
+**If diverged:** warn that local and remote have diverged; explain ahead/behind counts and that rebase pull may be needed.
+
+**If uncommitted local changes exist:** warn before pull — local edits may block or complicate rebase. List modified files.
+
+Only after the warning block (and conflict resolution if needed), pull:
+
+```bash
+git pull --rebase origin "$BRANCH"
+```
+
+If pull fails, report the error and stop until resolved.
+
+### 4. Update local repository
+
+- Confirm current branch: `git branch --show-current`
+- Show latest commit: `git log -1 --oneline`
+- Show working tree: `git status --short`
+
+### 5. Read project status files
+
+Read both files if they exist:
+
+- `PROJECT_STATUS.md` — current state, last deploy, branch, build info
+- `TODO.md` — open tasks and priorities
+
+If either file is missing, note that in the summary and offer to create it from the current repo state.
+
+### 6. Summarize project status
+
+Provide a concise summary covering:
+
+- Sync state (behind / ahead / diverged / in sync) and any warnings issued
+- Merge conflict status (clean or blocked)
+- Current branch and latest commit
+- Uncommitted or unpushed changes
+- Last known deploy / build state (from `PROJECT_STATUS.md` if available)
+- Open tasks (from `TODO.md` if available)
+- Anything blocking work today
+
+### 7. Prepare workspace
+
+- Ensure dependencies are not required (this is a dependency-free static site)
+- Confirm key paths exist: `index.html`, `assets/`, `blog/`, `docs/`, `downloads/releases.js`, `scripts/build_dist_web.sh`, `scripts/build_dist_web.bat`
+- If `dist_web/` is missing or stale, do **not** rebuild yet unless the user asks — hola is read/sync only
+
+---
+
+## adios — end session
+
+Run these steps in order:
+
+### 1. Validation / tests
+
+No formal test suite exists. Run this validation checklist:
+
+```bash
+# Required source files
+test -f index.html && test -f robots.txt && test -f sitemap.xml && test -f .htaccess
+test -d assets && test -d blog && test -d docs
+test -f downloads/releases.js
+
+# Homepage marketing sections (must exist in index.html)
+grep -q 'blog/index.html' index.html
+grep -q 'instagram.com/checkyourbackup' index.html
+grep -q 'id="guides"' index.html
+grep -q 'Follow the Project' index.html
+grep -q 'Sitemap' index.html
+
+# robots.txt must point to sitemap.xml (not sitemap.php)
+grep -q 'sitemap.xml' robots.txt
+! grep -q 'sitemap.php' robots.txt
+```
+
+Report pass/fail for each check. If any check fails, fix the issue before continuing unless the user explicitly accepts the failure.
+
+### 2. Generate release build
+
+Build `dist_web/` from scratch:
+
+```bash
+bash scripts/build_dist_web.sh
+```
+
+On Windows (no bash): `scripts\build_dist_web.bat`
+
+After build, verify:
+
+- `dist_web/index.html` exists
+- File count is 28 (approximate; report actual count)
+- `dist_web/index.html` MD5 matches root `index.html`:
+  `md5sum index.html dist_web/index.html`
+
+Note: `dist_web/` is gitignored — it is built locally for FTP upload, not committed.
+
+### 3. Update PROJECT_STATUS.md
+
+Update (or create) `PROJECT_STATUS.md` with:
+
+- Date (UTC)
+- Branch name
+- Latest commit hash and message
+- Build timestamp
+- `dist_web/index.html` size and MD5
+- Total `dist_web` file count and size
+- Validation result (pass/fail)
+- Deploy status (pending / uploaded / not applicable)
+- Brief note of changes made this session
+
+Do **not** update `TODO.md` unless tasks were completed or added during the session.
+
+### 4. Commit all changes
+
+Stage and commit every intentional change (source files, rules, status docs — **not** `dist_web/`):
+
+```bash
+git add -A
+git status
+git commit -m "<descriptive message summarizing session changes>"
+```
+
+If there is nothing to commit, say so and skip to step 5.
+
+### 5. Push to GitHub
+
+```bash
+git push -u origin "$(git branch --show-current)"
+```
+
+Retry push up to 4 times on network failure (4s, 8s, 16s, 32s backoff).
+
+### 6. Confirm build and commit hash
+
+Report a final confirmation block:
+
+| Item | Value |
+|---|---|
+| Commit hash | `<full or short hash>` |
+| Branch | `<branch>` |
+| Push status | success / failed |
+| Build | `dist_web/` generated |
+| `index.html` size | `<bytes>` |
+| `index.html` MD5 | `<hash>` |
+| `dist_web` files | `<count>` |
+| Validation | pass / fail |
+
+Remind the user to upload the **contents** of `dist_web/` to Freehostia `public_html/` and purge Cloudflare cache after deploy.
+
+---
+
+## General rules
+
+- **hola** = sync and orient; no builds or commits unless needed to unblock pull.
+- **adios** = validate, build, document, commit, push, confirm.
+- Never commit `dist_web/` (it is in `.gitignore`).
+- Never modify the desktop application from this repo.
+- Keep responses concise; use tables for manifest and confirmation output.
