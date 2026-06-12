@@ -232,18 +232,28 @@
         <span class="brand-name">Check Your Backup</span>
       </a>
       <nav class="nav" id="nav">
-        <a href="#features">Features</a>
-        <a href="#formats">Formats</a>
-        <a href="#readonly">Read-only</a>
-        <a href="#how">How it works</a>
-        <a href="#screenshots">Screenshots</a>
-        <a href="#status">Status</a>
-        <a href="#story">Story</a>
-        <a href="#guides">Guides</a>
-        <a href="blog/index.html">Blog</a>
-        <a href="#docs">Docs</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-menu-dropdown">
+          <button type="button" class="nav-menu-trigger" id="navMenuTrigger" aria-expanded="false" aria-haspopup="true" aria-controls="navMenuPanel">
+            Menu
+          </button>
+          <div class="nav-menu-panel" id="navMenuPanel" role="menu" hidden>
+            <a href="#features" role="menuitem">Features</a>
+            <a href="#formats" role="menuitem">Formats</a>
+            <a href="#readonly" role="menuitem">Read-only</a>
+            <a href="#how" role="menuitem">How it works</a>
+            <a href="#screenshots" role="menuitem">Screenshots</a>
+            <a href="#status" role="menuitem">Status</a>
+            <a href="#story" role="menuitem">Story</a>
+            <a href="#guides" role="menuitem">Guides</a>
+            <a href="blog/index.html" role="menuitem">Blog</a>
+            <a href="#docs" role="menuitem">Documentation</a>
+            <a href="docs/user-guide.html" role="menuitem">User guide</a>
+            <a href="docs/about.html" role="menuitem">About</a>
+            <a href="docs/changelog.html" role="menuitem">Changelog</a>
+            <a href="#faq" role="menuitem">FAQ</a>
+            <a href="#contact" role="menuitem">Contact</a>
+          </div>
+        </div>
         <a href="https://www.instagram.com/checkyourbackup/" target="_blank" rel="noopener noreferrer" aria-label="Follow Check Your Backup on Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
@@ -251,9 +261,6 @@
         </a>
         <a class="btn btn-primary btn-sm" href="#download">Download</a>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 

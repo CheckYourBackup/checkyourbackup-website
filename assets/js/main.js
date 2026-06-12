@@ -3,22 +3,47 @@
 (function () {
   "use strict";
 
-  // Mobile nav toggle
-  var toggle = document.getElementById("navToggle");
-  var nav = document.getElementById("nav");
+  // Menu dropdown (text "Menu", no hamburger)
+  var menuTrigger = document.getElementById("navMenuTrigger");
+  var menuPanel = document.getElementById("navMenuPanel");
+  var menuDropdown = menuTrigger && menuTrigger.closest(".nav-menu-dropdown");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  function closeMenu() {
+    if (!menuDropdown || !menuTrigger || !menuPanel) return;
+    menuDropdown.classList.remove("is-open");
+    menuTrigger.setAttribute("aria-expanded", "false");
+    menuPanel.hidden = true;
+  }
+
+  function openMenu() {
+    if (!menuDropdown || !menuTrigger || !menuPanel) return;
+    menuDropdown.classList.add("is-open");
+    menuTrigger.setAttribute("aria-expanded", "true");
+    menuPanel.hidden = false;
+  }
+
+  function toggleMenu() {
+    if (!menuDropdown) return;
+    if (menuDropdown.classList.contains("is-open")) closeMenu();
+    else openMenu();
+  }
+
+  if (menuTrigger && menuPanel && menuDropdown) {
+    menuTrigger.addEventListener("click", function (event) {
+      event.stopPropagation();
+      toggleMenu();
     });
 
-    // Close the menu after clicking a link (mobile)
-    nav.addEventListener("click", function (event) {
-      if (event.target.tagName === "A") {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
+    menuPanel.addEventListener("click", function (event) {
+      if (event.target.tagName === "A") closeMenu();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menuDropdown.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMenu();
     });
   }
 
