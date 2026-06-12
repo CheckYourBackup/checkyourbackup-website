@@ -8,7 +8,7 @@
 |-------|-------|
 | **Site version** | 1.0.7 (see `downloads/releases.js`) |
 | **Branch** | `cursor/hola-adios-workflow-198b` |
-| **Last updated** | 2026-06-12 (Google Search links added) |
+| **Last updated** | 2026-06-12 (session close) |
 | **Dev server** | `python3 -m http.server 5173` → http://localhost:5173 |
 | **Assets / navigation** | OK (see audit below) |
 | **Instagram assets** | 14 captures in `instagram/captures/` |
@@ -21,7 +21,8 @@
 - Added hola/adios Cursor workflow rule and `PROJECT_STATUS.md` / `TODO.md`.
 - Audited `assets/img/` and site navigation (local, GitHub `main`, production) — all OK.
 - Created `instagram/` folder with 14 Instagram-ready screenshots + capture script.
-- Regenerated `dist_web/` deploy bundle (480 KB, 18 files).
+- Documented Google Search Console links in this file.
+- Regenerated `dist_web/` deploy bundle (480 KB, 18 files) — validation pass, ready for FTP.
 
 ## Assets audit — `assets/img/`
 
@@ -49,7 +50,7 @@ Checked **2026-06-12** — 11/11 header anchors OK; `docs/*.html` back-links and
 
 | Artifact | Status |
 |----------|--------|
-| `dist_web/` (FTP deploy bundle) | **Built** — 480 KB, 18 files (2026-06-12) |
+| `dist_web/` (FTP deploy bundle) | **Built** — 480 KB, 18 files (regenerated 2026-06-12, adios) |
 
 Generate with: `bash scripts/build_dist_web.sh`
 
@@ -59,9 +60,9 @@ Upload the **contents** of `dist_web/` to `checkyourbackup.com/public_html/`.
 
 | Check | Command | Last result |
 |-------|---------|-------------|
-| JS syntax | `node --check assets/js/main.js` | Pass (2026-06-12) |
-| Releases syntax | `node --check downloads/releases.js` | Pass (2026-06-12) |
-| HTTP smoke | `curl` → http://localhost:5173/ | Pass — index 200, releases.js 200 |
+| JS syntax | `node --check assets/js/main.js` | Pass (2026-06-12, adios) |
+| Releases syntax | `node --check downloads/releases.js` | Pass (2026-06-12, adios) |
+| HTTP smoke | `curl` → http://localhost:5173/ | Pass — index 200, releases.js 200 (adios) |
 | Image / nav audit | Manual + browser | Pass (2026-06-12) |
 
 ## Google Search — enlaces útiles
