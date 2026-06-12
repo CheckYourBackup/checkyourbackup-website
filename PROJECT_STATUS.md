@@ -8,7 +8,7 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 |---|---|
 | Site version | 1.0.7 |
 | Branch | `main` |
-| Last commit | `c12ff54` — Expand hola/adios rules: global workflow, local PC sync, pending branches, install script |
+| Last commit | `0d46a56` — Keep main nav links visible; Menu dropdown for Formats, Read-only, Screenshots, Status, Guides |
 | Repository | [CheckYourBackup/checkyourbackup-website](https://github.com/CheckYourBackup/checkyourbackup-website) |
 | Production | https://checkyourbackup.com/ |
 
@@ -18,11 +18,11 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 
 **Work done:**
 
-- Expanded **adios** rule: global + project layers, local PC `git pull` reminder, pending branch audit, Instagram ZIP
-- Added `hola-adios-global.mdc` (all projects) and `hola-adios-project.mdc` (this site)
-- Added install scripts: `scripts/install-cursor-session-rules.sh` / `.bat`
-- Added `docs/CURSOR_SESSION_WORKFLOW.md`
-- Instagram captures + ZIP on `main` (`instagram/captures/`, `checkyourbackup-instagram-captures.zip`)
+- New app screenshots synced from `instagram/captures/app/` → `assets/img/`
+- Generated `og-image.png` from marketing hero (1200×630) for social previews
+- Header nav: main links visible + **Menu** dropdown (Formats, Read-only, Screenshots, Status, Guides, docs)
+- Removed hamburger; fixed nav text wrapping CSS
+- hola/adios rules with local PC path `C:\Users\mpinar\checkyourbackup-website`
 
 ## Build
 
@@ -30,10 +30,10 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 |---|---|
 | Last build | 2026-06-12 (UTC) |
 | Output | `dist_web/` (gitignored) |
-| Files | 29 |
-| Size | 1.2 MB |
-| `index.html` size | 40,977 bytes |
-| `index.html` MD5 | `e152959161805d1ba8eb35cc33531dc5` |
+| Files | 31 |
+| Size | 1.5 MB |
+| `index.html` size | 41,499 bytes |
+| `index.html` MD5 | `959759a006b05c61ccca09f667d2cd78` |
 | Build script | `bash scripts/build_dist_web.sh` / `scripts\build_dist_web.bat` |
 
 ## Validation (last adios)
@@ -42,48 +42,49 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 |---|---|
 | Required source files | pass |
 | Homepage marketing strings | pass |
+| Menu dropdown in header | pass |
 | `robots.txt` → `sitemap.xml` | pass |
 | `node --check` (main.js, releases.js) | pass |
 | Dev server HTTP 200 (/, releases.js) | pass |
 | `dist_web/index.html` MD5 = root | pass |
-| Instagram captures on `main` | 14 PNG |
-| Instagram ZIP | `instagram/checkyourbackup-instagram-captures.zip` (5.6 MB) |
+| App screenshots synced | pass |
+| `og-image.png` (hero, 1200×630) | pass |
 
-## Pending branches (not merged — safe to close)
+## Pending branches (obsolete — safe to close)
 
 | Branch | Notes |
 |---|---|
-| `cursor/hola-adios-workflow-198b` | Superseded by `main` (rules + instagram already merged) |
-| `cursor/session-workflow-rule-000e` | Old `session-workflow.mdc` — replaced by global + project rules |
-| `cursor/dev-env-setup-198b` | Optional AGENTS.md cloud dev docs only |
+| `cursor/hola-adios-workflow-198b` | Superseded by `main` |
+| `cursor/session-workflow-rule-000e` | Replaced by global + project rules |
+| `cursor/reduce-em-dashes-000e` | Merged content already on `main` |
+| `cursor/dev-env-setup-198b` | Optional AGENTS.md cloud docs only |
 
 ## Deploy
 
 | Item | Status |
 |---|---|
 | FTP upload | pending — upload contents of `dist_web/` to `public_html/` |
-| Cloudflare cache | purge after upload |
+| Cloudflare cache | purge after upload (especially `og-image.png`) |
 
 ## Local sync (your PC)
 
-**adios updates GitHub only.** After every hola and adios, on your PC:
+**adios updates GitHub only.** On your PC after every session:
 
 ```cmd
 cd C:\Users\mpinar\checkyourbackup-website
 git checkout main
 git pull origin main
+scripts\build_dist_web.bat
 ```
 
 | Asset | Path |
 |---|---|
 | Project root | `C:\Users\mpinar\checkyourbackup-website\` |
 | Instagram PNGs | `C:\Users\mpinar\checkyourbackup-website\instagram\captures\feed-1080x1350\` |
-| Instagram ZIP | `C:\Users\mpinar\checkyourbackup-website\instagram\checkyourbackup-instagram-captures.zip` |
-| Deploy package | `scripts\build_dist_web.bat` → `dist_web\` → FTP |
-
-GitHub ZIP direct: https://github.com/CheckYourBackup/checkyourbackup-website/blob/main/instagram/checkyourbackup-instagram-captures.zip
+| App screenshots source | `C:\Users\mpinar\checkyourbackup-website\instagram\captures\app\` |
+| Deploy package | `C:\Users\mpinar\checkyourbackup-website\dist_web\` |
 
 ## Notes
 
-- Install hola/adios in other repos: `scripts\install-cursor-session-rules.bat <ruta-proyecto>`
-- Google Search Console: https://checkyourbackup.com/sitemap.xml
+- Menu dropdown: Formats, Read-only, Screenshots, Status, Guides + User guide, About, Changelog
+- Regenerate og-image: `python scripts\generate_og_image.py`
