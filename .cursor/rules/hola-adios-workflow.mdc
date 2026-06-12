@@ -77,7 +77,11 @@ files.
 
 ## adios — end session
 
-Execute in order. Fix failures before committing; do not push a broken build.
+Execute steps 1–6 in order. **Stop after step 6** and wait for explicit user confirmation
+before step 7. Do not commit or push without approval.
+
+Fix validation or build failures before presenting the summary. Do not propose committing a
+broken build.
 
 ### 1. Run validation / tests
 
@@ -97,7 +101,7 @@ curl -s -o /dev/null -w "%{http_code}" http://localhost:5173/downloads/releases.
 
 Both must return `200`. If any check fails, fix the issue and re-run before proceeding.
 
-### 2. Generate release build
+### 2. Generate build
 
 ```bash
 bash scripts/build_dist_web.sh
@@ -118,33 +122,60 @@ Update (do not skip) with:
 - Release build result (`dist_web/` file count and size)
 - Any known issues or follow-ups for the next session
 
-### 4. Commit all changes
+### 4. Show summary of modified files
+
+Run:
+
+```bash
+git status
+git diff --stat
+```
+
+Present a clear summary for the user:
+
+- Branch name
+- List of modified, added, and deleted files (not just `dist_web/` unless it changed)
+- Brief note on what each group of changes does
+- Validation summary (all checks passed or what failed)
+- Build result (`dist_web/` file count and size)
+
+If there are no changes to commit, say so and **skip steps 5–7**. Offer to push an existing
+unpushed commit only if one exists and the user asks.
+
+### 5. Propose commit message
+
+Draft one commit message that summarizes the session work. Use a clear, complete sentence in
+imperative mood (e.g. `docs: update session status after landing page edits`).
+
+Show the proposed message to the user before asking for confirmation.
+
+### 6. Ask for confirmation
+
+Explicitly ask the user to confirm before committing and pushing. Example:
+
+> Ready to commit and push? Reply **yes** to proceed with the proposed message, or suggest edits.
+
+Accept clear affirmative replies (`yes`, `confirm`, `ok`, `adelante`, etc.). If the user requests
+message changes, update the proposal and ask again. If the user declines, stop without committing.
+
+**Do not run `git commit` or `git push` until the user confirms.**
+
+### 7. Commit and push (only after confirmation)
+
+After explicit user approval:
 
 ```bash
 git add -A
-git status
-git commit -m "<descriptive message summarizing session work>"
-```
-
-Use a clear, complete commit message. If there is nothing to commit, say so and skip to step 5
-only if a prior commit still needs pushing.
-
-### 5. Push to GitHub
-
-```bash
+git commit -m "<approved message>"
 git push -u origin "$(git branch --show-current)"
 ```
 
-Retry on transient network errors (up to 4 times with backoff).
+Retry push on transient network errors (up to 4 times with backoff).
 
-### 6. Confirm build and commit hash
-
-Reply with:
+Then confirm to the user:
 
 - Full commit hash (`git rev-parse HEAD`)
 - Branch name
-- `dist_web/` build confirmation (file count, size)
-- Validation summary (all checks passed or what failed)
 - Push confirmation (remote up to date)
 
 ---
