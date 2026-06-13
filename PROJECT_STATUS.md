@@ -14,24 +14,22 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 
 ## Last session
 
-**Date:** 2026-06-12 (UTC)
+**Date:** 2026-06-13 (UTC)
 
 **Work done:**
 
-- New app screenshots synced from `instagram/captures/app/` → `assets/img/`
-- Generated `og-image.png` from marketing hero (1200×630) for social previews
-- Header nav: main links visible + **Menu** dropdown (Formats, Read-only, Screenshots, Status, Guides, docs)
-- Removed hamburger; fixed nav text wrapping CSS
-- hola/adios rules with local PC path `C:\Users\mpinar\checkyourbackup-website`
+- **hola** — session start on Mac; repos synced (`git pull`)
+- Clarified workspace layout: `Pagina_WEB/` (web), `CheckYourBackup/` (app), `downloads-repo/` (ZIPs)
+- **adios** — validation + `dist_web/` rebuild (no source code changes this session)
 
 ## Build
 
 | Item | Value |
 |---|---|
-| Last build | 2026-06-12 (UTC) |
+| Last build | 2026-06-13 (UTC) |
 | Output | `dist_web/` (gitignored) |
 | Files | 31 |
-| Size | 1.5 MB |
+| Size | 1.4 MB |
 | `index.html` size | 41,499 bytes |
 | `index.html` MD5 | `959759a006b05c61ccca09f667d2cd78` |
 | Build script | `bash scripts/build_dist_web.sh` / `scripts\build_dist_web.bat` |
@@ -44,11 +42,9 @@ Rolling log for session state, builds, and deploy. Updated by the **adios** work
 | Homepage marketing strings | pass |
 | Menu dropdown in header | pass |
 | `robots.txt` → `sitemap.xml` | pass |
-| `node --check` (main.js, releases.js) | pass |
-| Dev server HTTP 200 (/, releases.js) | pass |
+| `node --check` (main.js, releases.js) | skip (node not in cloud env) |
 | `dist_web/index.html` MD5 = root | pass |
 | App screenshots synced | pass |
-| `og-image.png` (hero, 1200×630) | pass |
 
 ## Pending branches (obsolete — safe to close)
 
